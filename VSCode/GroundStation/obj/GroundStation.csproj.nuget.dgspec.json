@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj": {}
+  },
+  "projects": {
+    "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj",
+        "projectName": "GroundStation",
+        "projectPath": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj",
+        "packagesPath": "/Users/tim/.nuget/packages/",
+        "outputPath": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/obj/",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "/Users/tim/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "xamarinios10"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "xamarinios10": {
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[27.1.1, )"
+            },
+            "Microcharts": {
+              "target": "Package",
+              "version": "[0.9.5.9, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.6.1, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

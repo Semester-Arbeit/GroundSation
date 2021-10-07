@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Projects/ViewController.cs">
+    <Files>
+      <File FileName="GroundStation/Main.cs" Line="12" Column="1" />
+      <File FileName="GroundStation/ViewController.designer.cs" Line="7" Column="1" />
+      <File FileName="GroundStation/ViewController.cs" Line="29" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="GroundStation" expanded="True">
+            <Node name="GroundStation" expanded="True">
+              <Node name="ViewController.cs" expanded="True">
+                <Node name="ViewController.designer.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.GroundStation PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.FCB47738-9FF9-4C6A-B4EA-8362ACE4DB4C" />
+</Properties>

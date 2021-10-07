@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "RRv0VWfn+EKi86WSC8vFov4nkV1YfeRuLD07LYUD3i91a2KRV7xhnVEA/L7myAFoSYYxR39+3+0IfcKujCnWfQ==",
+  "success": true,
+  "projectFilePath": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj",
+  "expectedPackageFiles": [
+    "/Users/tim/.nuget/packages/csvhelper/27.1.1/csvhelper.27.1.1.nupkg.sha512",
+    "/Users/tim/.nuget/packages/microcharts/0.9.5.9/microcharts.0.9.5.9.nupkg.sha512",
+    "/Users/tim/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
+    "/Users/tim/.nuget/packages/skiasharp/2.80.2/skiasharp.2.80.2.nupkg.sha512",
+    "/Users/tim/.nuget/packages/skiasharp.views/2.80.2/skiasharp.views.2.80.2.nupkg.sha512",
+    "/Users/tim/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/tim/.nuget/packages/xamarin.essentials/1.6.1/xamarin.essentials.1.6.1.nupkg.sha512"
+  ],
+  "logs": []
+}
