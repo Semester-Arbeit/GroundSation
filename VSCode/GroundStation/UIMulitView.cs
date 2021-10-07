@@ -13,18 +13,26 @@ namespace GroundStation
             preFlight,
             inFlight,
         };
+        public StandByView myStandbyView;
+        public InflightView myInflightView;
+        public PreflightView myPreflightView;
+       
 
-        
 
-        public UIMulitView(CoreGraphics.CGRect Framenew)
+        public UIMulitView(CoreGraphics.CGRect Frame)
         {
-            this.Frame = Framenew;
-             
-            StandByView myStandby = new StandByView();
-            myStandby.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height);
-            this.AddSubview(myStandby);
+            this.Frame = Frame;
+            myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
+            myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height));
+            myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
 
 
+            
+            
+            this.AddSubview(myPreflightView);
+            Console.WriteLine("prefl frame = " + myPreflightView.Frame);
+
+            
 
         }
 
@@ -50,25 +58,25 @@ namespace GroundStation
             switch (nextState)
             {
                 case states.standby:
-                    StandByView newStandbyView = new StandByView();
-                    newStandbyView.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height);
-                    this.AddSubview(newStandbyView);
+                    
+
+                    this.AddSubview(myStandbyView);
                     break;
                 case states.inFlight:
-                    InflightView newInflightView = new InflightView();
-                    newInflightView.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height);
-                    this.AddSubview(newInflightView);
+                    
+
+                    this.AddSubview(myInflightView);
                     break;
                 case states.preFlight:
-                    PreflightView newPreflightView = new PreflightView(this.Frame);
-                    newPreflightView.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height);
-                    this.AddSubview(newPreflightView);
+
+                    Console.WriteLine("preflight added");
+                    this.AddSubview(myPreflightView);
                     break;
 
                 default:
-                    StandByView defaultView = new StandByView();
-                    defaultView.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height);
-                    this.AddSubview(defaultView);
+                    
+
+                    this.AddSubview(myStandbyView);
                     break;
             }
   

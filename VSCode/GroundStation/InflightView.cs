@@ -5,8 +5,9 @@ namespace GroundStation
     public class InflightView : UIView
     {
         private UILabel test6 = new UILabel();
-        public InflightView()
+        public InflightView(CoreGraphics.CGRect frame)
         {
+            this.Frame = Frame;
             test6.Text = "In Flight Data";
             test6.Frame = new CoreGraphics.CGRect(0, 0, 200, 50);
             this.AddSubview(test6);

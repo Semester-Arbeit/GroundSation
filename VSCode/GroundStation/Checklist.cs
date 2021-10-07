@@ -26,21 +26,21 @@ namespace GroundStation
 
         }
 
-        public bool isListOK()
-        {
+        //public bool isListOK()
+        //{
 
-            foreach (CheckBox element in checkBoxes)
-            {
-                if ((int)element.schalter.State == 0)
-                {
-                    return false;
+        //    foreach (CheckBox element in checkBoxes)
+        //    {
+        //        if ((int)element.schalter.State == 0)
+        //        {
+        //            return false;
 
-                    Console.WriteLine("List not OK");
-                }
+        //            Console.WriteLine("List not OK");
+        //        }
 
-            }
-            return true;
-            Console.WriteLine("List OK");
-        }
+        //    }
+        //    return true;
+        //    Console.WriteLine("List OK");
+        //}
     }
 }

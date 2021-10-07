@@ -70,7 +70,8 @@ namespace GroundStation
 
 
 
-            
+            //PreflightView test = new PreflightView(new CoreGraphics.CGRect(0, 0, 500, 500));
+            //View.Add(test);
             
 
 

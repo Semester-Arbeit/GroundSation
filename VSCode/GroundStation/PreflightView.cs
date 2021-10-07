@@ -11,9 +11,9 @@ namespace GroundStation
 
         public Checklist leftChecklist;                            
 
-        public PreflightView(CoreGraphics.CGRect frameNew)
+        public PreflightView(CoreGraphics.CGRect frame)
         {
-            this.Frame = frameNew;
+            this.Frame = frame;
 
             leftChecklist = new Checklist(new CoreGraphics.CGRect(0,0,this.Frame.Width / 2, (float)this.Frame.Height));
             //leftChecklist.Frame = new CoreGraphics.CGRect(0, 0, 500, 500);
@@ -21,7 +21,7 @@ namespace GroundStation
             leftChecklist.addItem("check Akku");
             this.AddSubview(leftChecklist);
 
-            
+            Console.WriteLine("build Preview");
 
 
 

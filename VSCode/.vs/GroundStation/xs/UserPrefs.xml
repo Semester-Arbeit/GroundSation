@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/UIMulitView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/ViewController.cs">
     <Files>
       <File FileName="GroundStation/ViewController.cs" Line="8" Column="77" />
-      <File FileName="GroundStation/UIconsole.cs" />
-      <File FileName="GroundStation/Main.cs" />
-      <File FileName="GroundStation/PreflightView.cs" />
-      <File FileName="GroundStation/Checklist.cs" />
-      <File FileName="GroundStation/UIMulitView.cs" Line="1" Column="1" />
+      <File FileName="GroundStation/UIMulitView.cs" Line="61" Column="1" />
+      <File FileName="GroundStation/StandbyView.cs" Line="12" Column="53" />
+      <File FileName="GroundStation/PreflightView.cs" Line="14" Column="30" />
+      <File FileName="GroundStation/InflightView.cs" Line="8" Column="54" />
+      <File FileName="GroundStation/Checklist.cs" Line="44" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
-              <Node name="UIMulitView.cs" selected="True" />
-              <Node name="ViewController.cs" expanded="True" />
+              <Node name="ViewController.cs" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>
