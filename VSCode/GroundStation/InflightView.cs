@@ -13,7 +13,7 @@ namespace GroundStation
             this.AddSubview(test6);
 
             UISlider start = new UISlider();
-            start.Frame = new CoreGraphics.CGRect(750, 50, 200, 50);
+            start.Frame = new CoreGraphics.CGRect(750, 100, 200, 50);
             
             start.AddTarget(StartSliderTouched,UIControlEvent.TouchUpInside);
             this.AddSubview(start);

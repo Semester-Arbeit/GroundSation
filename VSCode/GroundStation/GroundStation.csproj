@@ -148,7 +148,8 @@
         <Compile Include="UIconsole.cs" />
         <Compile Include="DataLogger.cs" />
         <Compile Include="ParameterConfig.cs" />
-        <Compile Include="ValueDisplay.cs" />
+        <Compile Include="HistoryPlot.cs" />
+        <Compile Include="ValuePlot.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
