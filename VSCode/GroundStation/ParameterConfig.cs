@@ -11,11 +11,12 @@ namespace GroundStation
         {
             this.Name = name;
             this.Frame = frame;
-            //this.BackgroundColor = UIColor.FromRGB(240, 240, 240);
+            this.BackgroundColor = UIColor.FromRGB(240, 240, 240);
+
 
 
             paramEntry = new UITextField(new CoreGraphics.CGRect(this.Frame.Width-100,10,50,30));
-            paramEntry.BackgroundColor = UIColor.FromRGB(240, 240, 240);
+            paramEntry.BackgroundColor = UIColor.FromRGB(250, 250, 250);
             this.AddSubview(paramEntry);
 
             UILabel paramName = new UILabel();
@@ -34,11 +35,10 @@ namespace GroundStation
             this.AddSubview(sendParameters);
         }
 
+
+
         private void SendParametersPressed(object sender, EventArgs e)
         {
-            //ParameterConfig currentParameter = sender as ParameterConfig;
-            //string senderName = (string)currentParameter.Name;
-
 
             Console.WriteLine("Send Parameter" + Name +" value "+ paramEntry.Text);
 

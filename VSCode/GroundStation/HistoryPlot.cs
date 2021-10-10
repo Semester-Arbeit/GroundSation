@@ -23,7 +23,7 @@ namespace GroundStation
 
 
             valueEntries.Add(new ChartEntry(50));
-            valueEntries.Add(new ChartEntry(50));
+            valueEntries.Add(new ChartEntry(-50));
 
 
 

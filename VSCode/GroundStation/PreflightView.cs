@@ -18,8 +18,18 @@ namespace GroundStation
 
             leftChecklist = new Checklist(new CoreGraphics.CGRect(0,0,this.Frame.Width / 2, (float)this.Frame.Height));
 
-            leftChecklist.addItem("hello");
-            leftChecklist.addItem("check Akku");
+            leftChecklist.addItem("Akkuspannung IO");
+            leftChecklist.addItem("Rotor Frei");
+            leftChecklist.addItem("Boardcomputer live");
+            leftChecklist.addItem("Datenverbinding zu Ipad");
+            leftChecklist.addItem("Umgebung Frei");
+            leftChecklist.addItem("Alle Flaps aktiv");
+            leftChecklist.addItem("ConfigFile geladen");
+
+
+
+
+
             this.AddSubview(leftChecklist);
             Console.WriteLine("Preflight constructor");
 

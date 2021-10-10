@@ -11,6 +11,7 @@ using SkiaSharp;
 using System.Collections.Generic;
 using System.IO;
 
+
 namespace GroundStation
 {
 
@@ -21,27 +22,30 @@ namespace GroundStation
         {
         }
 
-        int i = 1;
+        
 
-
-        UIconsole myConsole = new UIconsole(new CoreGraphics.CGRect(475, 100, 400, 200));           //gui Console
+        ConfigFile configuration = new ConfigFile("testconfig23");
+        UIconsole myConsole = new UIconsole(new CoreGraphics.CGRect(50, 130, 600, 200));           //gui Console
         UIMulitView myMulitView = new UIMulitView(new CoreGraphics.CGRect(155,500,1000,400));       //Multi View
-        ValuePlot YawAngle = new ValuePlot(new CoreGraphics.CGRect(150, 200, 50, 250),"Yaw");
-        HistoryPlot YawHistory = new HistoryPlot(new CoreGraphics.CGRect(200, 200, 200, 250), "Yaw History");
+
         
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            myMulitView.rerender(0);                          
-            
-            View.AddSubview(YawAngle);                                                           //YawAngle display
+            myMulitView.rerender(0);
+
+            UILabel flightTitle = new UILabel();
+            flightTitle.Text = "Flight #13";
+            flightTitle.Frame = new CoreGraphics.CGRect(105, 180, 200, 50);
+            View.AddSubview(flightTitle);
+
 
 
             UIButton abortFlight = new UIButton();                                              //abort flight button
             abortFlight.SetTitle("Abort Flight", new UIControlState());
-            abortFlight.Frame = new CoreGraphics.CGRect(1200, 40, 150, 150);
+            abortFlight.Frame = new CoreGraphics.CGRect(1180, 180, 150, 150);
             abortFlight.BackgroundColor = UIColor.Red;
             abortFlight.AddTarget(AbortFlightPressed, UIControlEvent.TouchDown);
             View.AddSubview(abortFlight);
@@ -56,30 +60,21 @@ namespace GroundStation
 
             UISegmentedControl ChoseView = new UISegmentedControl();                            //Schalter für die Auswahl von ansichten
             ChoseView.Frame = new CoreGraphics.CGRect(155, 100, 1000, 40);
-            ChoseView.InsertSegment("Standby", 0, true);
+            ChoseView.InsertSegment("config", 0, true);
             ChoseView.InsertSegment("Preflight", 1, true);
             ChoseView.InsertSegment("Inflight", 2, true);
             ChoseView.AddTarget(ViewHasChanged, UIControlEvent.ValueChanged);
             ChoseView.SelectedSegment = 0 ;
             View.AddSubview(ChoseView);
 
-
-           
-           
-            View.AddSubview(myMulitView);                                               //multiview
+            View.AddSubview(myMulitView);                                                      //add multiview
 
 
 
 
 
             
-            View.AddSubview(YawHistory);
-
-            //InflightView testview = new InflightView(new CoreGraphics.CGRect(100, 0, 100, 500));
-            //View.AddSubview(testview);
-            //testSlider.Frame = new CoreGraphics.CGRect(750, 100, 200, 50);
-            //View.AddSubview(testSlider);
-
+            
 
 
 
@@ -101,16 +96,10 @@ namespace GroundStation
         {
 
 
-            //TODO Send Stop To Roket!
-            Console.WriteLine("ABORT FLIGHT");
             
-            myConsole.WriteLine("line "+i);
-            i++;
-            
-            
-            
-                YawHistory.AddNewValue(i*0.02);
-            YawAngle.setNewValue(i * 0.02);
+            myConsole.WriteLine("ABORT FLIGHT");
+            myConsole.WriteLine(configuration.GetParameter("hight"));
+
             
             
 

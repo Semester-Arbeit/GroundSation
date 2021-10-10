@@ -5,7 +5,7 @@ namespace GroundStation
 {
     public class UIconsole: UIView
     {
-        public UITextView TextField = new UITextView();
+        private UITextView TextField = new UITextView();
         private List<string> lines = new List<string>();
         private int shownLines = 10;
         public UIconsole(CoreGraphics.CGRect frame)
