@@ -4,19 +4,29 @@ namespace GroundStation
 {
     public class InflightView : UIView
     {
-        private UILabel test6 = new UILabel();
-        public InflightView(CoreGraphics.CGRect frame)
+        private UILabel title = new UILabel();
+        public InflightView(CoreGraphics.CGRect Frame)
         {
             this.Frame = Frame;
-            test6.Text = "In Flight Data";
-            test6.Frame = new CoreGraphics.CGRect(0, 0, 200, 50);
-            this.AddSubview(test6);
 
-            UISlider start = new UISlider();
-            start.Frame = new CoreGraphics.CGRect(750, 100, 200, 50);
+
+            title.Text = "In Flight Data";
+            title.Frame = new CoreGraphics.CGRect(0, 0, 200, 50);
+            this.AddSubview(title);
+
+            UISlider startSlider = new UISlider();
+            startSlider.Frame = new CoreGraphics.CGRect(50, 50, 200, 50);
+            startSlider.AddTarget(StartSliderTouched,UIControlEvent.TouchUpInside);
+
+            this.AddSubview(startSlider);
+            //this.BringSubviewToFront(startSlider);
+
+
+
             
-            start.AddTarget(StartSliderTouched,UIControlEvent.TouchUpInside);
-            this.AddSubview(start);
+            
+            Console.WriteLine(this.Frame);
+
 
         }
 
@@ -26,14 +36,17 @@ namespace GroundStation
             
 
             UISlider currentSlider = sender as UISlider;
+            Console.WriteLine(currentSlider.Value);
             if (currentSlider.Value == 1)
             {
                 //TODO send start signal
                 Console.WriteLine("start Flight");
             }
-                
+
             else
-                currentSlider.SetValue(0,true);
+            {
+                currentSlider.SetValue(0, true);
+            }
         }
 
     }

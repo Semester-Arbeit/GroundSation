@@ -25,12 +25,14 @@ namespace GroundStation
             myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
             myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height));
             myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
-
-
             
             
+
+
+
+
             this.AddSubview(myPreflightView);
-            Console.WriteLine("prefl frame = " + myPreflightView.Frame);
+            
 
             
 
@@ -58,18 +60,19 @@ namespace GroundStation
             switch (nextState)
             {
                 case states.standby:
-                    
 
+                   
                     this.AddSubview(myStandbyView);
                     break;
                 case states.inFlight:
-                    
 
+                    
                     this.AddSubview(myInflightView);
+                    
                     break;
                 case states.preFlight:
 
-                    Console.WriteLine("preflight added");
+                  
                     this.AddSubview(myPreflightView);
                     break;
 

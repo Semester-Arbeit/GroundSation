@@ -9,7 +9,7 @@ namespace GroundStation
         
 
 
-        public StandByView(CoreGraphics.CGRect frame)
+        public StandByView(CoreGraphics.CGRect Frame)
         {
             this.Frame = Frame;
             test6.Text = "Configuration";

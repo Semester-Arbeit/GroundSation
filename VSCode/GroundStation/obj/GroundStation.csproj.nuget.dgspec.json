@@ -40,6 +40,10 @@
               "target": "Package",
               "version": "[0.9.5.9, )"
             },
+            "System.Linq": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.6.1, )"
