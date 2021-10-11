@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/StandbyView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/UIMulitView.cs">
     <Files>
-      <File FileName="GroundStation/ViewController.cs" Line="28" Column="79" />
-      <File FileName="GroundStation/DataLogger.cs" />
-      <File FileName="GroundStation/ConfigFile.cs" Line="48" Column="26" />
-      <File FileName="GroundStation/InflightView.cs" Line="55" Column="63" />
-      <File FileName="GroundStation/UIconsole.cs" Line="19" Column="60" />
-      <File FileName="GroundStation/PreflightView.cs" Line="27" Column="54" />
+      <File FileName="GroundStation/ViewController.cs" Line="74" Column="15" />
+      <File FileName="GroundStation/InflightView.cs" Line="80" Column="54" />
+      <File FileName="GroundStation/UIMulitView.cs" Line="1" Column="1" />
       <File FileName="GroundStation/StandbyView.cs" Line="1" Column="1" />
-      <File FileName="GroundStation/ParameterConfig.cs" Line="1" Column="1" />
+      <File FileName="GroundStation/ParameterConfig.cs" Line="15" Column="1" />
+      <File FileName="GroundStation/Main.cs" Line="12" Column="1" />
+      <File FileName="GroundStation/UIStatusDisplay.cs" Line="8" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +15,7 @@
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
               <Node name="References" expanded="True" />
-              <Node name="StandbyView.cs" selected="True" />
+              <Node name="UIMulitView.cs" selected="True" />
               <Node name="ViewController.cs" expanded="True" />
             </Node>
           </Node>

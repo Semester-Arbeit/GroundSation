@@ -154,6 +154,7 @@
         <Compile Include="HistoryPlot.cs" />
         <Compile Include="ValuePlot.cs" />
         <Compile Include="ConfigFile.cs" />
+        <Compile Include="UIStatusDisplay.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

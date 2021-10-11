@@ -62,7 +62,7 @@ namespace GroundStation
 
             
             
-            Console.WriteLine(this.Frame);
+            
 
 
         }
@@ -73,10 +73,11 @@ namespace GroundStation
             
 
             UISlider currentSlider = sender as UISlider;
-            Console.WriteLine(currentSlider.Value);
+            
             if (currentSlider.Value == 1)
             {
-                //TODO send start signal
+                //TODO send start signal to Roket
+                //TODO check checklist mit isListOk funktion
                 Console.WriteLine("start Flight");
             }
 

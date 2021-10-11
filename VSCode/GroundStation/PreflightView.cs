@@ -31,7 +31,7 @@ namespace GroundStation
 
 
             this.AddSubview(leftChecklist);
-            Console.WriteLine("Preflight constructor");
+
 
 
 

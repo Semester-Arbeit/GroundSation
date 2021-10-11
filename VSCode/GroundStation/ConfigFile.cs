@@ -18,7 +18,7 @@ namespace GroundStation
     public class ConfigFile
     {
         private string fileName;
-        private List<List<string>> sheet = new List<List<string>>();
+        private Dictionary<string,string> myDictionary = new Dictionary<string, string>();
 
 
         public ConfigFile(string name)
@@ -26,36 +26,30 @@ namespace GroundStation
             this.fileName = name + ".csv";
         }
 
-
-
         public void AddNewParameter(string Name, string Value)
         {
-            sheet.Add(new List<string>(){Name , Value });    
+            myDictionary.Add(Name, Value);  
         }
 
         public void SetParameter(string Name, string Value)
         {
-            foreach (List<string> active in sheet)
-            {
-                if (active[0]==Name)
-                {
-                    active[1] = Value;
-                }
-            }
+            if (myDictionary.ContainsKey(Name))
+                myDictionary[Name] = Value;
+            else
+                Console.WriteLine("ERROR: tried to write to a non existant parameter");
         }
 
 
         public string GetParameter(string Name)
         {
-            foreach (List<string> active in sheet)
+
+            if (myDictionary.ContainsKey(Name))
+                return myDictionary[Name];
+            else
             {
-                if (active[0] == Name)
-                {
-                    return active[1];
-                }
+                Console.WriteLine("ERROR: tried to read a non existant parameter");
+                return "ERROR: tried to read a non existant parameter";
             }
-            Console.WriteLine("GetParameter did not found searched Parameter");
-            return "GetParameter did not found searched Parameter";
         }
 
 
@@ -65,14 +59,10 @@ namespace GroundStation
             var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filepath = Path.Combine(documents, fileName);
             var myLogFile = File.AppendText(filepath);
-            foreach (List<string> line in sheet)
+            foreach (KeyValuePair<string, string> entry in myDictionary)
             {
-                foreach (string element in line)
-                {
-                    myLogFile.Write(element + ";");
 
-                }
-                myLogFile.Write("\n");
+                myLogFile.Write(entry.Key+entry.Value+"\n");
             }
             myLogFile.Close();
         }
@@ -87,7 +77,9 @@ namespace GroundStation
 
             for(int line = 0; line < myConfigFile.Length;line++)
             {
-                sheet[line] = myConfigFile[line].Split(';').ToList(); ;
+                var tempList = new List<string>();
+                tempList = myConfigFile[line].Split(',').ToList();
+                myDictionary.Add(tempList[0], tempList[1]);
             }
             
         }

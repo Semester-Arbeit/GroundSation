@@ -22,17 +22,25 @@ namespace GroundStation
             UILabel paramName = new UILabel();
             paramName.Text = name;
             paramName.Frame = new CoreGraphics.CGRect(0,0, this.Frame.Width - 100, this.Frame.Height);
-            //paramName.BackgroundColor = UIColor.Gray;
-
             this.AddSubview(paramName);
+
+
 
             UIButton sendParameters = new UIButton();
             sendParameters.Frame = new CoreGraphics.CGRect(this.Frame.Width - 50, 0, 50, this.Frame.Height);
             sendParameters.SetTitle("send", UIControlState.Normal);
+     
             
             sendParameters.BackgroundColor = UIColor.FromRGB(235, 236, 242);
             sendParameters.AddTarget(SendParametersPressed, UIControlEvent.TouchUpInside);
             this.AddSubview(sendParameters);
+
+            UILabel bottomBoarder = new UILabel();
+            bottomBoarder.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, 1);
+            bottomBoarder.BackgroundColor = UIColor.Black;
+            this.AddSubview(bottomBoarder);
+
+
         }
 
 

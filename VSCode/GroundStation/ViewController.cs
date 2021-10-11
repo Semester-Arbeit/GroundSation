@@ -60,7 +60,7 @@ namespace GroundStation
 
             UISegmentedControl ChoseView = new UISegmentedControl();                            //Schalter für die Auswahl von ansichten
             ChoseView.Frame = new CoreGraphics.CGRect(155, 100, 1000, 40);
-            ChoseView.InsertSegment("config", 0, true);
+            ChoseView.InsertSegment("Config", 0, true);
             ChoseView.InsertSegment("Preflight", 1, true);
             ChoseView.InsertSegment("Inflight", 2, true);
             ChoseView.AddTarget(ViewHasChanged, UIControlEvent.ValueChanged);
@@ -71,7 +71,7 @@ namespace GroundStation
 
 
 
-
+            configuration.AddNewParameter("test1", "value134");
 
             
             
@@ -98,10 +98,11 @@ namespace GroundStation
 
             
             myConsole.WriteLine("ABORT FLIGHT");
-            myConsole.WriteLine(configuration.GetParameter("hight"));
+            //myConsole.WriteLine(configuration.GetParameter("hight"));
+            myConsole.WriteLine(configuration.GetParameter("test1"));
 
-            
-            
+
+
 
         }
 
