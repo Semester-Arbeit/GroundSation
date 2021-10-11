@@ -49,6 +49,13 @@ namespace GroundStation
 
 
 
+            // Status Views
+
+            //UIStatusDisplay satelite = new UIStatusDisplay("Satelite", "0", false, new CoreGraphics.CGRect(600, 40, 250, 50));
+            //this.AddSubview(satelite);
+
+
+
         }
 
 
