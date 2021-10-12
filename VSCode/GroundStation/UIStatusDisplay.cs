@@ -5,14 +5,7 @@ namespace GroundStation
     public class UIStatusDisplay:UIView
     {
 
-        //public enum states
-        //{
-        //    standby,
-        //    preFlight,
-        //    inFlight,
-        //    OK,
-        //    searching
-        //};
+
 
         private UILabel statusbar;
 
@@ -27,10 +20,15 @@ namespace GroundStation
             UILabel myState = new UILabel(new CoreGraphics.CGRect((this.Frame.Width / 3) * 2, 0, (this.Frame.Width / 3) * 1, this.Frame.Height));
             myState.Text = stateNow;
             this.AddSubview(myState);
+            Console.WriteLine(this.Frame);
 
-            statusbar.Frame = new CoreGraphics.CGRect(0, this.Frame.Height-1, this.Frame.Width,1 );
-            if (stateOk)
-               
+
+            statusbar = new UILabel();
+            statusbar.Frame = new CoreGraphics.CGRect(0, this.Frame.Height-5, this.Frame.Width,1 );
+            if (stateOk==true)
+                statusbar.BackgroundColor = UIColor.Black;
+            if (stateOk == false)
+                statusbar.BackgroundColor = UIColor.Red;
 
             this.AddSubview(statusbar);
         }

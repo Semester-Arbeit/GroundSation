@@ -2,11 +2,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/UIStatusDisplay.cs">
     <Files>
       <File FileName="GroundStation/ViewController.cs" Line="74" Column="66" />
-      <File FileName="GroundStation/InflightView.cs" Line="80" Column="54" />
-      <File FileName="GroundStation/UIMulitView.cs" Line="11" Column="1" />
-      <File FileName="GroundStation/UIStatusDisplay.cs" Line="22" Column="1" />
-      <File FileName="GroundStation/StandbyView.cs" Line="54" Column="68" />
-      <File FileName="GroundStation/ParameterConfig.cs" Line="15" Column="1" />
+      <File FileName="GroundStation/InflightView.cs" />
+      <File FileName="GroundStation/UIMulitView.cs" />
+      <File FileName="GroundStation/StandbyView.cs" Line="55" Column="15" />
+      <File FileName="GroundStation/UIStatusDisplay.cs" Line="34" Column="30" />
       <File FileName="GroundStation/Main.cs" Line="12" Column="1" />
     </Files>
     <Pads>
