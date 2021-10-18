@@ -7,7 +7,7 @@ namespace GroundStation
     {
         private UITextView TextField = new UITextView();
         private List<string> lines = new List<string>();
-        private int shownLines = 10;
+        private int LinesInConsole = 0;
         public UIconsole(CoreGraphics.CGRect frame)
         {
             this.Frame = frame;
@@ -19,23 +19,14 @@ namespace GroundStation
             TextField.TextAlignment = UITextAlignment.Left;
             TextField.Text = "";
             
-
-            for(int i = 0; i < shownLines; i++)
-            {
-                lines.Add(""+i);
-            }
             this.AddSubview(TextField);
-
-
-
         }
 
         public void WriteLine(string line)
         {
-
-
-            TextField.Text =line + "\n"+ TextField.Text ;
-
+            TextField.Text = TextField.Text + "\n" + LinesInConsole.ToString()+ ":  " + line;
+            TextField.ScrollEnabled = true;
+            LinesInConsole++;
         } 
 
     }

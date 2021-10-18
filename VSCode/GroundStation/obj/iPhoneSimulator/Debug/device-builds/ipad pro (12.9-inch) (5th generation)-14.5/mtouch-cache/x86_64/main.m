@@ -15,7 +15,7 @@ void xamarin_register_modules_impl ()
 
 void xamarin_register_assemblies_impl ()
 {
-	GCHandle exception_gchandle = INVALID_GCHANDLE;
+	guint32 exception_gchandle = 0;
 	xamarin_open_and_register ("Microcharts.iOS.dll", &exception_gchandle);
 	xamarin_process_managed_exception_gchandle (exception_gchandle);
 	xamarin_open_and_register ("SkiaSharp.Views.iOS.dll", &exception_gchandle);

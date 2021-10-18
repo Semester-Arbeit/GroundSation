@@ -2,6 +2,7 @@
 using UIKit;
 using Microcharts;
 using Microcharts.iOS;
+using SkiaSharp;
 using System.Collections.Generic;
 
 namespace GroundStation
@@ -12,25 +13,30 @@ namespace GroundStation
         BarChart myChart = new BarChart();
         ChartView myChartView = new ChartView();
         public List<ChartEntry> valueEntries = new List<ChartEntry>();
+        private string dataPointColor = "";
 
-        public ValuePlot(CoreGraphics.CGRect frame, string name)
+        public ValuePlot(CoreGraphics.CGRect frame, string name, UIColor titelBackgroundColor, int MaxValue = 100, int MinValue = -100, String backgroundColor = "#16131b")
         {
+
             this.Frame = frame;
             UILabel title = new UILabel();
             title.Text = name;
-            title.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, 20);
+            title.BackgroundColor = titelBackgroundColor;
+            title.Frame = new CoreGraphics.CGRect(0, 0, 100, 20);
             this.AddSubview(title);
+            this.dataPointColor = backgroundColor;
 
-
-            valueEntries.Add(new ChartEntry(50));
+            valueEntries.Add(new ChartEntry(0)
+            {
+                Color = SKColor.Parse(dataPointColor)
+            });
 
 
             myChart.Entries = valueEntries;
 
 
-            myChart.LabelColor = SkiaSharp.SKColor.Parse("#16131b");
-            myChart.MinValue = -100;
-            myChart.MaxValue = 100;                                               //chart from -100 bis 100
+            myChart.MinValue = MinValue;
+            myChart.MaxValue = MaxValue;                                               //chart from -100 bis 100
             myChart.LabelTextSize = 10;
 
 
@@ -42,11 +48,13 @@ namespace GroundStation
             this.AddSubview(myChartView);
         }
 
-        public void setNewValue(double valueDouble)
+        public void AddNewValue(float valueDouble)
         {
-            float value = (float)valueDouble * 100;
+            float value = valueDouble;
             Console.WriteLine("value changed");
-            valueEntries[0] = new ChartEntry(value);
+            valueEntries[0] = new ChartEntry(value){
+                Color = SKColor.Parse(dataPointColor)
+            };
             myChart.IsAnimated = false;
 
             this.AddSubview(myChartView);

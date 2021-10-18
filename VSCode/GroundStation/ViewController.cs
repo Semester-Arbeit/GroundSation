@@ -18,6 +18,10 @@ namespace GroundStation
 
     public partial class ViewController : UIViewController
     {
+
+        private Alpha alpha = new Alpha();
+
+
         public ViewController(IntPtr handle) : base(handle)
         {
         }
@@ -26,7 +30,7 @@ namespace GroundStation
 
         ConfigFile configuration = new ConfigFile("testconfig23");
         UIconsole myConsole = new UIconsole(new CoreGraphics.CGRect(50, 130, 600, 200));           //gui Console
-        UIMulitView myMulitView = new UIMulitView(new CoreGraphics.CGRect(155,500,1000,400));       //Multi View
+        UIMulitView myMulitView;      //Multi View
 
         
 
@@ -34,6 +38,8 @@ namespace GroundStation
         {
             base.ViewDidLoad();
 
+            myMulitView = new UIMulitView(new CoreGraphics.CGRect(155, 500, 1000, 400), alpha);
+            alpha.TelemetryUpdate += this.updateUIValues;
             myMulitView.rerender(0);
 
             UILabel flightTitle = new UILabel();
@@ -93,16 +99,19 @@ namespace GroundStation
         }
 
         public void AbortFlightPressed(object sender, EventArgs e)
-        {
-
-
-            
+        { 
             myConsole.WriteLine("ABORT FLIGHT");
+            alpha.abort();
+        }
 
 
-
-
-
+        public void updateUIValues(RocketTelemetry telemetry)
+        {
+            Invoke(new Action(() =>
+            {
+                myConsole.WriteLine(telemetry.rawData);
+                myMulitView.updateInFlightView(telemetry.rawData);
+            }), 0);
         }
 
 

@@ -45,7 +45,7 @@ namespace GroundStation
             var myLogFile = File.AppendText(filepath);
             foreach (string line in linesInFile)
             {
-                myLogFile.Write(line);
+                myLogFile.Write(line + "\n");
             }
             myLogFile.Close();
         }

@@ -19,12 +19,12 @@ namespace GroundStation
        
 
 
-        public UIMulitView(CoreGraphics.CGRect Frame)
+        public UIMulitView(CoreGraphics.CGRect Frame, Alpha connectedVehicle)
         {
             this.Frame = Frame;
             myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
             myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height));
-            myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
+            myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height), connectedVehicle);
             
             
 
@@ -36,6 +36,11 @@ namespace GroundStation
 
             
 
+        }
+
+        public void updateInFlightView(string rawDdata)
+        {
+            myInflightView.updateCharts(rawDdata);
         }
 
         public states toStates(nint index)

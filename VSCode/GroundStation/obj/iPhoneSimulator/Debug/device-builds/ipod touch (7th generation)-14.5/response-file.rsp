@@ -2,19 +2,20 @@
 --sgen-conc
 /target-framework:Xamarin.iOS,Version=v1.0
 --http-message-handler=NSUrlSessionHandler
-"--cache=/Users/tim/Documents/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/mtouch-cache"
---root-assembly=/Users/tim/Documents/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/GroundStation.exe
+"--cache=/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/mtouch-cache"
+--root-assembly=/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/GroundStation.exe
 --sdkroot=/Applications/Xcode.app/Contents/Developer
---targetver=14.5
-"--sim=/Users/tim/Documents/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/GroundStation.app"
+--targetver=14.4
+"--sim=/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/GroundStation.app"
 --executable=GroundStation
 --nolink
 --sdk=14.5
 --aot-options=-O=-float32
 --abi=x86_64
-"--symbollist=/Users/tim/Documents/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/mtouch-symbols.list"
+"--symbollist=/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipod touch (7th generation)-14.5/mtouch-symbols.list"
 --dsym=no
---framework=/Users/tim/.nuget/packages/skiasharp/2.80.2/build/xamarinios1.0/libSkiaSharp.framework
+--framework=/Users/tobiasrothlin/.nuget/packages/skiasharp/2.80.2/buildTransitive/xamarinios1.0/../../build/xamarinios1.0/libSkiaSharp.framework
+--framework=/Users/tobiasrothlin/.nuget/packages/skiasharp/2.80.2/buildTransitive/xamarinios1.0/../../build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Microsoft.CSharp.dll
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/OpenTK-1.0.dll
@@ -167,9 +168,9 @@
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XDocument.dll
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XPath.XmlDocument.dll
 --reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.Xsl.Primitives.dll
---reference=/Users/tim/.nuget/packages/csvhelper/27.1.1/lib/netstandard2.1/CsvHelper.dll
---reference=/Users/tim/.nuget/packages/microcharts/0.9.5.9/lib/xamarinios1.0/Microcharts.dll
---reference=/Users/tim/.nuget/packages/microcharts/0.9.5.9/lib/xamarinios1.0/Microcharts.iOS.dll
---reference=/Users/tim/.nuget/packages/skiasharp/2.80.2/lib/xamarinios1.0/SkiaSharp.dll
---reference=/Users/tim/.nuget/packages/skiasharp.views/2.80.2/lib/xamarinios1.0/SkiaSharp.Views.iOS.dll
---reference=/Users/tim/.nuget/packages/xamarin.essentials/1.6.1/lib/xamarinios10/Xamarin.Essentials.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/csvhelper/27.1.1/lib/netstandard2.1/CsvHelper.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/microcharts/0.9.5.9/lib/xamarinios1.0/Microcharts.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/microcharts/0.9.5.9/lib/xamarinios1.0/Microcharts.iOS.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/skiasharp/2.80.2/lib/xamarinios1.0/SkiaSharp.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/skiasharp.views/2.80.2/lib/xamarinios1.0/SkiaSharp.Views.iOS.dll
+--reference=/Users/tobiasrothlin/.nuget/packages/xamarin.essentials/1.6.1/lib/xamarinios10/Xamarin.Essentials.dll

@@ -1,51 +1,49 @@
 ﻿using System;
 using UIKit;
+using Microcharts;
+using Microcharts.iOS;
+using SkiaSharp;
+
 namespace GroundStation
 {
     public class InflightView : UIView
     {
         
         
-        public ValuePlot YawAngle = new ValuePlot(new CoreGraphics.CGRect(0, 50, 50, 250), "Yaw");
-        public HistoryPlot YawHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 50, 250, 250), "");
+        public ValuePlot YawAngle = new ValuePlot(new CoreGraphics.CGRect(0, 0, 50, 250), "Yaw",UIColor.SystemBlueColor, 90,-90,"#006FF9");
+        public HistoryPlot YawHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 0, 250, 250), "", UIColor.SystemBlueColor, 90, -90, "#006FF9");
 
-        public ValuePlot PinchAngle = new ValuePlot(new CoreGraphics.CGRect(0, 300, 50, 250), "Pinch");
-        public HistoryPlot PinchHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 300, 250, 250), "");
+        public ValuePlot PitchAngle = new ValuePlot(new CoreGraphics.CGRect(0, 250, 50, 250), "Pitch", UIColor.SystemGreenColor, 90, -90, "#00BF55");
+        public HistoryPlot PitchHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 250, 250, 250), "", UIColor.SystemGreenColor, 90, -90, "#00BF55");
 
-        public ValuePlot RollAngle = new ValuePlot(new CoreGraphics.CGRect(400, 50, 50, 250), "Roll");
-        public HistoryPlot RollHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 50, 250, 250), "");
+        public ValuePlot RollAngle = new ValuePlot(new CoreGraphics.CGRect(400, 0, 50, 250), "Roll", UIColor.SystemRedColor, 90, -90, "#FF3432");
+        public HistoryPlot RollHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 0, 250, 250), "", UIColor.SystemRedColor, 90, -90, "#FF3432");
 
-        public ValuePlot HightPos = new ValuePlot(new CoreGraphics.CGRect(400, 300, 50, 250), "Hight");
-        public HistoryPlot HightHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 300, 250, 250), "");
+        public ValuePlot Altitude = new ValuePlot(new CoreGraphics.CGRect(400, 250, 50, 250), "Altitude", UIColor.LightGray, 50, 0);
+        public HistoryPlot AltitudeHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 250, 250, 250), "", UIColor.LightGray, 50, 0);
 
-        public InflightView(CoreGraphics.CGRect Frame)
+        private Alpha connectedVehicle;
+
+        public InflightView(CoreGraphics.CGRect Frame, Alpha connectedVehicle)
         {
             this.Frame = Frame;
 
+            this.connectedVehicle = connectedVehicle;
 
-
-            YawAngle.BackgroundColor = UIColor.LightGray;
-            YawHistory.BackgroundColor = UIColor.LightGray;
             this.AddSubview(YawAngle);
             this.AddSubview(YawHistory);
 
-            PinchAngle.BackgroundColor = UIColor.LightGray;
-            PinchHistory.BackgroundColor = UIColor.LightGray;
-            this.AddSubview(PinchAngle);
-            this.AddSubview(PinchHistory);
+            this.AddSubview(PitchAngle);
+            this.AddSubview(PitchHistory);
 
-            RollAngle.BackgroundColor = UIColor.LightGray;
-            RollHistory.BackgroundColor = UIColor.LightGray;
             this.AddSubview(RollAngle);
             this.AddSubview(RollHistory);
 
-            HightPos.BackgroundColor = UIColor.LightGray;
-            HightHistory.BackgroundColor = UIColor.LightGray;
-            this.AddSubview(HightPos);
-            this.AddSubview(HightHistory);
+            this.AddSubview(Altitude);
+            this.AddSubview(AltitudeHistory);
 
             UILabel sliderTitle = new UILabel();
-            sliderTitle.Text = "Slide To Flight";
+            sliderTitle.Text = "Slide to fly";
             sliderTitle.Frame = new CoreGraphics.CGRect(800, 30, 200, 50);
             this.AddSubview(sliderTitle);
 
@@ -53,7 +51,7 @@ namespace GroundStation
 
             UISlider startSlider = new UISlider();
             startSlider.Frame = new CoreGraphics.CGRect(800, 80, 200, 50);
-            startSlider.AddTarget(StartSliderTouched,UIControlEvent.TouchUpInside);
+            startSlider.AddTarget(StartSliderTouched,UIControlEvent.ValueChanged);
 
             this.AddSubview(startSlider);
 
@@ -67,20 +65,38 @@ namespace GroundStation
 
         }
 
+        public void updateCharts(string rawData)
+        {
+            var parsedData = rawData.Split(',');
+            float pitch = float.Parse(parsedData[1]);
+            float roll = float.Parse(parsedData[2]);
+            float yaw = float.Parse(parsedData[3]);
+
+            PitchHistory.AddNewValue(pitch);
+            PitchAngle.AddNewValue(pitch);
+
+            RollHistory.AddNewValue(roll);
+            RollAngle.AddNewValue(roll);
+
+            YawHistory.AddNewValue(yaw);
+            YawAngle.AddNewValue(yaw);
+
+            AltitudeHistory.AddNewValue(50);
+            Altitude.AddNewValue(50);
+        }
+
         
         private void StartSliderTouched(object sender, EventArgs e)
         {
             
-
-            UISlider currentSlider = sender as UISlider;
             
+            UISlider currentSlider = sender as UISlider;
+            Console.WriteLine(currentSlider.Value);
             if (currentSlider.Value == 1)
             {
-                //TODO send start signal to Roket
-                //TODO check checklist mit isListOk funktion
                 Console.WriteLine("start Flight");
+                connectedVehicle.launch();
             }
-
             else
             {
                 currentSlider.SetValue(0, true);

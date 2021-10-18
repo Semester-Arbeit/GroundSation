@@ -2,6 +2,7 @@
 using UIKit;
 using Microcharts;                                                            
 using Microcharts.iOS;
+using SkiaSharp;
 using System.Collections.Generic;
 
 namespace GroundStation
@@ -11,28 +12,27 @@ namespace GroundStation
         LineChart myChart = new LineChart();
         ChartView myChartView = new ChartView();
         public List<ChartEntry> valueEntries = new List<ChartEntry>();
+        private string dataPointColor = "";
+        private UILabel title;
 
 
-        public HistoryPlot(CoreGraphics.CGRect frame, string name)
-        { 
+        public HistoryPlot(CoreGraphics.CGRect frame, string name, UIColor titelBackgroundColor,int MaxValue = 100, int MinValue =-100, string backgroundColor = "#16131b")
+        {
             this.Frame = frame;
-            UILabel title = new UILabel();
+            title = new UILabel();
             title.Text = name;
-            title.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, 20);
+            title.BackgroundColor = titelBackgroundColor;
+            title.Frame = new CoreGraphics.CGRect(20, 0, frame.Width-20, 20);
             this.AddSubview(title);
-
-
-            valueEntries.Add(new ChartEntry(50));
-            valueEntries.Add(new ChartEntry(-50));
-
+            this.dataPointColor = backgroundColor;
 
 
             myChart.Entries = valueEntries ;
             
             
-            myChart.LabelColor = SkiaSharp.SKColor.Parse("#16131b");
-            myChart.MaxValue = 100;                                               //chart from -100 bis 100
-            myChart.MinValue = -100;
+          
+            myChart.MaxValue = MaxValue;                                               
+            myChart.MinValue = MinValue;
             myChart.LabelTextSize = 10;
             
             
@@ -45,11 +45,19 @@ namespace GroundStation
             this.AddSubview(myChartView);
     }
 
-    public void AddNewValue(double valueDouble)
+    public void AddNewValue(float valueDouble)
     {
-            float value = (float)valueDouble * 100;
-        
-        valueEntries.Add(new ChartEntry(value));
+            title.Text = valueDouble.ToString();
+            float value = valueDouble;
+            Console.WriteLine(valueEntries.Count);
+            if(valueEntries.Count > 15)
+            {
+                valueEntries.Remove(valueEntries[0]);
+            }
+        valueEntries.Add(new ChartEntry(value)
+        {
+            Color = SKColor.Parse(dataPointColor)
+        });
         myChart.Entries = valueEntries;
             myChart.IsAnimated = false;
         Console.WriteLine(" value"+ value+ " added to history");

@@ -833,20 +833,20 @@
     ]
   },
   "packageFolders": {
-    "/Users/tim/.nuget/packages/": {}
+    "/Users/tobiasrothlin/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj",
+      "projectUniqueName": "/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/GroundStation.csproj",
       "projectName": "GroundStation",
-      "projectPath": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/GroundStation.csproj",
-      "packagesPath": "/Users/tim/.nuget/packages/",
-      "outputPath": "/Users/tim/Documents/GroundSation/VSCode/GroundStation/obj/",
+      "projectPath": "/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/GroundStation.csproj",
+      "packagesPath": "/Users/tobiasrothlin/.nuget/packages/",
+      "outputPath": "/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/tim/.config/NuGet/NuGet.Config"
+        "/Users/tobiasrothlin/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
