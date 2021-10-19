@@ -118925,7 +118925,7 @@ _mono_aot_file_info:
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
-	.byte 137,123,77,42,240,101,215,127,141,43,89,191,52,253,237,10
+	.byte 34,148,125,56,174,142,216,21,33,116,122,227,41,67,46,142
 	.globl _mono_aot_module_Microcharts_info
 	.align 3
 _mono_aot_module_Microcharts_info:

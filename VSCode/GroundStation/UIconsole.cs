@@ -11,8 +11,7 @@ namespace GroundStation
         public UIconsole(CoreGraphics.CGRect frame)
         {
             this.Frame = frame;
-            
-
+           
             TextField.Frame = this.Frame;
             TextField.BackgroundColor = UIColor.FromRGB(65, 64, 64);
             TextField.TextColor = UIColor.FromRGB(255, 255, 255);
@@ -25,7 +24,6 @@ namespace GroundStation
         public void WriteLine(string line)
         {
             TextField.Text = TextField.Text + "\n" + LinesInConsole.ToString()+ ":  " + line;
-            TextField.ScrollEnabled = true;
             LinesInConsole++;
         } 
 

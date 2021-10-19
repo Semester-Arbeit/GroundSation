@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/Info.plist">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="GroundStation/ViewController.cs" Line="41" Column="74" />
+      <File FileName="GroundStation/ViewController.cs" Line="61" Column="38" />
       <File FileName="GroundStation/InflightView.cs" />
       <File FileName="GroundStation/UIMulitView.cs" />
       <File FileName="GroundStation/StandbyView.cs" />
-      <File FileName="GroundStation/UIStatusDisplay.cs" />
+      <File FileName="GroundStation/UIStatusDisplay.cs" Line="1" Column="1" />
       <File FileName="GroundStation/Info.plist" />
       <File FileName="GroundStation/PreflightView.cs" />
       <File FileName="GroundStation/DataLogger.cs" />
-      <File FileName="GroundStation/ConfigFile.cs" />
-      <File FileName="GroundStation/Alpha.cs" />
+      <File FileName="GroundStation/ConfigFile.cs" Line="76" Column="1" />
+      <File FileName="GroundStation/Alpha.cs" Line="105" Column="22" />
       <File FileName="GroundStation/RocketTelemetry.cs" />
-      <File FileName="GroundStation/UIconsole.cs" />
+      <File FileName="GroundStation/UIconsole.cs" Line="30" Column="6" />
       <File FileName="GroundStation/Main.cs" />
       <File FileName="GroundStation/HistoryPlot.cs" />
       <File FileName="GroundStation/ValuePlot.cs" />
@@ -22,7 +22,9 @@
         <State name="__root__">
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
-              <Node name="Info.plist" selected="True" />
+              <Node name="References" expanded="True" />
+              <Node name="Packages" expanded="True" />
+              <Node name="Assets.xcassets" selected="True" />
               <Node name="ViewController.cs" expanded="True" />
             </Node>
           </Node>
@@ -36,5 +38,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GroundStation PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C3E2BED8-4E6C-4265-B44E-E327557C154C" />
+  <MonoDevelop.Ide.ItemProperties.GroundStation PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E31D9D94-C704-416C-A853-B718E4043142" />
 </Properties>
