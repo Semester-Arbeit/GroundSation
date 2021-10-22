@@ -39,6 +39,7 @@ namespace GroundStation
             myChart.MaxValue = MaxValue;                                               //chart from -100 bis 100
             myChart.LabelTextSize = 10;
 
+            myChart.BackgroundColor = SKColor.Parse(getSystemColorAsString());
 
             myChartView.Chart = myChart;
 
@@ -58,6 +59,19 @@ namespace GroundStation
             myChart.IsAnimated = false;
 
             this.AddSubview(myChartView);
+        }
+
+        public string getSystemColorAsString()
+        {
+            if (UIColor.SecondarySystemBackgroundColor.ToString() == "UIColor [A=255, R=28, G=28, B=30]")
+            {
+                return "#1C1C1E";
+            }
+            else
+            {
+                return "#F2F2F6";
+            }
+
         }
     }
 }

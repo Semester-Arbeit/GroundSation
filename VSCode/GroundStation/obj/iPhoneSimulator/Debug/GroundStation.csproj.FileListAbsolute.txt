@@ -46,14 +46,16 @@
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/SkiaSharp.Views.iOS.dll
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/Xamarin.Essentials.dll
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/bin/iPhoneSimulator/Debug/Xamarin.Essentials.pdb
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.csprojAssemblyReference.cache
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.csproj.CoreCompileInputs.cache
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.csproj.CopyComplete
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.exe
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.pdb
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/actool/_PartialAppManifest.items
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/actool/_BundleResourceWithLogicalName.items
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/ibtool/_BundleResourceWithLogicalName.items
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/coremlc/_PartialAppManifest.items
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/coremlc/_BundleResourceWithLogicalName.items
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/optimized/
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.csproj.CoreCompileInputs.cache
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.csproj.CopyComplete
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.exe
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/GroundStation.pdb
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/optimized/LunchIcon152px.png
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/optimized/LunchIcon1024px.png
+/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhoneSimulator/Debug/device-builds/ipad pro (12.9-inch) (5th generation)-14.5/optimized/LunchIcon58px.png

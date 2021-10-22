@@ -36,7 +36,7 @@ namespace GroundStation
             var sendBytes = Encoding.ASCII.GetBytes(data);
             try
             {
-                udp.Send(sendBytes, sendBytes.Length);
+                Console.WriteLine(udp.Send(sendBytes, sendBytes.Length));
             }
             catch (Exception r)
             {
@@ -47,7 +47,7 @@ namespace GroundStation
 
         public void launch()
         {
-            if(!inFlight)
+            if (!inFlight)
             {
                 Console.WriteLine("Lanching");
                 sendData("L");
@@ -55,7 +55,6 @@ namespace GroundStation
                 this.inFlight = true;
                 startListener();
             }
-           
         }
 
         public async void abort()
@@ -70,7 +69,7 @@ namespace GroundStation
         public void getRocketStatus()
         {
             sendData("S");
-            startListener(0);
+            startListener(0, true);
         }
 
         public void stopReceivingData()
@@ -78,17 +77,29 @@ namespace GroundStation
             this.stopListening = true;
         }
 
-        public async void startListener(int peridticTelemetryUpdate = 4)
+        public async void startListener(int peridticTelemetryUpdate = 3, bool sUpdate = false)
         {
             UdpClient receivingUdpClient = new UdpClient(2390);
             IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
             string returnData = "";
             try
             {
+                int i = 0;
+                while (i <2000 && receivingUdpClient.Available < 1)
+                {
+                    await Task.Delay(1);
+                    i++;
+                    
+                }
+                if(i == 2000)
+                {
+                    stopReceivingData();
+                    return;
+                }
                 Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                 returnData = Encoding.ASCII.GetString(receiveBytes);
 
-                int i = 0;
+                i = 0;
                 while (returnData != "E" && !stopListening)
                 {
                     FlightData.AppendLine(returnData);
@@ -96,8 +107,8 @@ namespace GroundStation
                     {
                         TelemetryUpdate(new RocketTelemetry()
                         {
-                            rawData = returnData
-
+                            rawData = returnData,
+                            statusUpdate = sUpdate
 
                         });
                         await Task.Delay(1);
@@ -113,7 +124,7 @@ namespace GroundStation
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e);
             }
             receivingUdpClient.Close();
             FlightData.WriteFile();

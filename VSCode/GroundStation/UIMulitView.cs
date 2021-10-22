@@ -22,7 +22,7 @@ namespace GroundStation
         public UIMulitView(CoreGraphics.CGRect Frame, Alpha connectedVehicle)
         {
             this.Frame = Frame;
-            myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height));
+            myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height), connectedVehicle);
             myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height));
             myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height), connectedVehicle);
             
@@ -38,64 +38,66 @@ namespace GroundStation
 
         }
 
-        public void updateInFlightView(string rawDdata)
+        public void updateInFlightView(RocketTelemetry telemetry)
         {
-            myInflightView.updateCharts(rawDdata);
+            if(telemetry.statusUpdate)
+            {
+                myPreflightView.autoCheck(telemetry);
+            }
+            else
+            {
+                myInflightView.updateCharts(telemetry.rawData);
+            }
+            
         }
 
-        public states toStates(nint index)
+
+        public bool rerender(states nextState)
         {
 
-            if (index == 0) return states.standby;
-            if (index == 1) return states.preFlight;
-            if (index == 2) return states.inFlight;
-
-
-            return states.standby;                      //default return
-        }
-
-        public void rerender(int stateInt)
-        {
-            states nextState = toStates(stateInt);
             this.WillRemoveSubview(this.Subviews[0]);
             this.Subviews[0].RemoveFromSuperview();
-
-
 
             switch (nextState)
             {
                 case states.standby:
-
-                   
                     this.AddSubview(myStandbyView);
                     break;
+
                 case states.inFlight:
-
-                    
                     this.AddSubview(myInflightView);
-                    
                     break;
-                case states.preFlight:
 
-                  
+                case states.preFlight:
                     this.AddSubview(myPreflightView);
                     break;
 
                 default:
-                    
-
                     this.AddSubview(myStandbyView);
                     break;
             }
-  
-
-
-
-
-            
-
+            if (nextState == states.inFlight && !myPreflightView.areAllChecksCompleted())
+            {
+                return false;
+            }
+            return true;
         }
 
-       
+        static public states intToStates(int i)
+        {
+            switch(i)
+            {
+                case 0:
+                    return states.standby;
+
+                case 1:
+                    return states.preFlight;
+
+                case 2:
+                    return states.inFlight;
+                default:
+                    return states.standby;
+            }
+        }
     }
 }

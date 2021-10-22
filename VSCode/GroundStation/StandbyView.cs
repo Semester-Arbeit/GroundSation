@@ -1,66 +1,53 @@
 ﻿using System;
 using UIKit;
+using System.Collections.Generic;
+using NetworkExtension;
 namespace GroundStation
 {
     public class StandByView : UIView
     {
 
-        private UILabel test6 = new UILabel();
-        
+        private UILabel ConParamTitle = new UILabel();
 
+        private UIButton sendButton = new UIButton();
 
-        public StandByView(CoreGraphics.CGRect Frame)
+        private List<ParameterConfig> listOfParameterConfigs = new List<ParameterConfig>();
+
+        private List<List<String>> configurationParameters = new List<List<string>>();
+
+        public StandByView(CoreGraphics.CGRect Frame, int numberOfParameters = 12)
         {
             this.Frame = Frame;
-            test6.Text = "Configuration";
-            test6.Frame = new CoreGraphics.CGRect(0, 0, 200, 50);
-            this.AddSubview(test6);
+            ConParamTitle.Text = "Control Parameters";
+            ConParamTitle.Frame = new CoreGraphics.CGRect(0, 0, 200, 50);
+            this.AddSubview(ConParamTitle);
 
 
-            ParameterConfig K1 = new ParameterConfig( "Parameter K1" ,  new CoreGraphics.CGRect(0,40,250,50));
-            this.AddSubview(K1);
-
-            ParameterConfig K2 = new ParameterConfig("Parameter K2", new CoreGraphics.CGRect(0, 40+50*1, 250, 50));
-            this.AddSubview(K2);
-
-            ParameterConfig K3 = new ParameterConfig("Parameter K3", new CoreGraphics.CGRect(0, 40 + 50 * 2, 250, 50));
-            this.AddSubview(K3);
-
-            ParameterConfig K4 = new ParameterConfig("Parameter K4", new CoreGraphics.CGRect(0, 40 + 50 * 3, 250, 50));
-            this.AddSubview(K4);
-
-            ParameterConfig K5 = new ParameterConfig("Parameter K5", new CoreGraphics.CGRect(0, 40 + 50 * 4, 250, 50));
-            this.AddSubview(K5);
+            sendButton.SetTitle("Send", new UIControlState());
+            sendButton.Frame = new CoreGraphics.CGRect(850, 110, 100, 50);
+            sendButton.BackgroundColor = UIColor.SystemGreenColor;
+            sendButton.AddTarget(sendParameters, UIControlEvent.TouchDown);
+            this.AddSubview(sendButton);
 
 
-                                                                                                    //neue Zeile
-            ParameterConfig K6 = new ParameterConfig("Parameter K6", new CoreGraphics.CGRect(250, 40 + 50 * 0, 250, 50));
-            this.AddSubview(K6);
+            configurationParameters.Add(new List<string> { "Pitch Kp", "Pitch Ki", "XPos Kp", "XPos Ki" });
+            configurationParameters.Add(new List<string> { "Roll  Kp", "Roll  Ki", "YPos Kp", "YPos Ki" });
+            configurationParameters.Add(new List<string> { "Yaw   Kp", "Yaw   Ki", "Alt  Kp", "Alt  Ki" });
 
-            ParameterConfig K7 = new ParameterConfig("Parameter K7", new CoreGraphics.CGRect(250, 40 + 50 * 1, 250, 50));
-            this.AddSubview(K7);
-
-            ParameterConfig K8 = new ParameterConfig("Parameter K8", new CoreGraphics.CGRect(250, 40 + 50 * 2, 250, 50));
-            this.AddSubview(K8);
-
-            ParameterConfig K9 = new ParameterConfig("Parameter K9", new CoreGraphics.CGRect(250, 40 + 50 * 3, 250, 50));
-            this.AddSubview(K9);
-
-
-
-
-            // Status Views
-
-            //UIStatusDisplay satelite = new UIStatusDisplay("Satelite", "0", true, new CoreGraphics.CGRect(600, 40, 250, 50));
-            //this.AddSubview(satelite);
-
-
-
+            for (int i = 0; i < numberOfParameters / 4; i++)
+            {
+                for (int m = 0; m < 4; m++)
+                {
+                    listOfParameterConfigs.Add(new ParameterConfig(configurationParameters[i][m], new CoreGraphics.CGRect(210 * m, (60 * i) + 50, 200, 50)));
+                    this.AddSubview(listOfParameterConfigs[i * 4 + m]);
+                }
+            }
         }
 
+        private void sendParameters(object sender, EventArgs e)
+        {
+            Console.WriteLine("HAllo");
 
-
-
-
+        }
     }
 }

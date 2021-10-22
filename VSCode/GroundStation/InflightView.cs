@@ -3,6 +3,7 @@ using UIKit;
 using Microcharts;
 using Microcharts.iOS;
 using SkiaSharp;
+using System.Threading.Tasks;
 
 namespace GroundStation
 {
@@ -13,21 +14,22 @@ namespace GroundStation
         public ValuePlot YawAngle = new ValuePlot(new CoreGraphics.CGRect(0, 0, 50, 250), "Yaw",UIColor.SystemBlueColor, 90,-90,"#006FF9");
         public HistoryPlot YawHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 0, 250, 250), "", UIColor.SystemBlueColor, 90, -90, "#006FF9");
 
-        public ValuePlot PitchAngle = new ValuePlot(new CoreGraphics.CGRect(0, 250, 50, 250), "Pitch", UIColor.SystemGreenColor, 90, -90, "#00BF55");
-        public HistoryPlot PitchHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 250, 250, 250), "", UIColor.SystemGreenColor, 90, -90, "#00BF55");
+        public ValuePlot PitchAngle = new ValuePlot(new CoreGraphics.CGRect(0, 300, 50, 250), "Pitch", UIColor.SystemGreenColor, 90, -90, "#00BF55");
+        public HistoryPlot PitchHistory = new HistoryPlot(new CoreGraphics.CGRect(50, 300, 250, 250), "", UIColor.SystemGreenColor, 90, -90, "#00BF55");
 
-        public ValuePlot RollAngle = new ValuePlot(new CoreGraphics.CGRect(400, 0, 50, 250), "Roll", UIColor.SystemRedColor, 90, -90, "#FF3432");
-        public HistoryPlot RollHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 0, 250, 250), "", UIColor.SystemRedColor, 90, -90, "#FF3432");
+        public ValuePlot RollAngle = new ValuePlot(new CoreGraphics.CGRect(350, 0, 50, 250), "Roll", UIColor.SystemRedColor, 90, -90, "#FF3432");
+        public HistoryPlot RollHistory = new HistoryPlot(new CoreGraphics.CGRect(400, 0, 250, 250), "", UIColor.SystemRedColor, 90, -90, "#FF3432");
 
-        public ValuePlot Altitude = new ValuePlot(new CoreGraphics.CGRect(400, 250, 50, 250), "Altitude", UIColor.LightGray, 50, 0);
-        public HistoryPlot AltitudeHistory = new HistoryPlot(new CoreGraphics.CGRect(450, 250, 250, 250), "", UIColor.LightGray, 50, 0);
+        public ValuePlot Altitude = new ValuePlot(new CoreGraphics.CGRect(350, 300, 50, 250), "Altitude", UIColor.LightGray, 5, 0,"#A0A0A0");
+        public HistoryPlot AltitudeHistory = new HistoryPlot(new CoreGraphics.CGRect(400, 300, 250, 250), "", UIColor.LightGray, 5, 0,"#A0A0A0");
 
         private Alpha connectedVehicle;
+
+
 
         public InflightView(CoreGraphics.CGRect Frame, Alpha connectedVehicle)
         {
             this.Frame = Frame;
-
             this.connectedVehicle = connectedVehicle;
 
             this.AddSubview(YawAngle);
@@ -51,7 +53,8 @@ namespace GroundStation
 
             UISlider startSlider = new UISlider();
             startSlider.Frame = new CoreGraphics.CGRect(800, 80, 200, 50);
-            startSlider.AddTarget(StartSliderTouched,UIControlEvent.ValueChanged);
+            startSlider.AddTarget(StartSliderTouched,UIControlEvent.TouchUpInside);
+            startSlider.AddTarget(StartSliderTouched, UIControlEvent.TouchUpOutside);
 
             this.AddSubview(startSlider);
 
@@ -71,6 +74,7 @@ namespace GroundStation
             float pitch = float.Parse(parsedData[1]);
             float roll = float.Parse(parsedData[2]);
             float yaw = float.Parse(parsedData[3]);
+            float alt = float.Parse(parsedData[12]);
 
             PitchHistory.AddNewValue(pitch);
             PitchAngle.AddNewValue(pitch);
@@ -81,21 +85,19 @@ namespace GroundStation
             YawHistory.AddNewValue(yaw);
             YawAngle.AddNewValue(yaw);
 
-            AltitudeHistory.AddNewValue(50);
-            Altitude.AddNewValue(50);
+            AltitudeHistory.AddNewValue(alt);
+            Altitude.AddNewValue(alt);
         }
 
         
-        private void StartSliderTouched(object sender, EventArgs e)
+        private async void StartSliderTouched(object sender, EventArgs e)
         {
-            
-            
             UISlider currentSlider = sender as UISlider;
-            Console.WriteLine(currentSlider.Value);
             if (currentSlider.Value == 1)
             {
-                Console.WriteLine("start Flight");
                 connectedVehicle.launch();
+                await Task.Delay(2000);
+                currentSlider.SetValue(0, true);
             }
             else
             {

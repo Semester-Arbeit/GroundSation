@@ -25,6 +25,7 @@ namespace GroundStation
             title.Frame = new CoreGraphics.CGRect(20, 0, frame.Width-20, 20);
             this.AddSubview(title);
             this.dataPointColor = backgroundColor;
+            
 
 
             myChart.Entries = valueEntries ;
@@ -34,11 +35,12 @@ namespace GroundStation
             myChart.MaxValue = MaxValue;                                               
             myChart.MinValue = MinValue;
             myChart.LabelTextSize = 10;
-            
-            
+
 
             myChartView.Chart = myChart;
 
+
+            myChart.BackgroundColor = SKColor.Parse(getSystemColorAsString());
             
 
             myChartView.Frame = new CoreGraphics.CGRect(0,20,this.Frame.Width,this.Frame.Height-20);
@@ -62,7 +64,20 @@ namespace GroundStation
             myChart.IsAnimated = false;
         Console.WriteLine(" value"+ value+ " added to history");
 
+           
+    }
 
+    public string getSystemColorAsString()
+    {
+        if(UIColor.SecondarySystemBackgroundColor.ToString() == "UIColor [A=255, R=28, G=28, B=30]")
+            {
+                return "#1C1C1E";
+            }
+            else
+            {
+                return "#F2F2F6";
+            }
+            
     }
 }
 }

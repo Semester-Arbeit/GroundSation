@@ -49,61 +49,61 @@
       "idiom": "iphone"
     },
     {
-      "filename": "Icon20.png",
+      "filename": "AppIcon20px.png",
       "size": "20x20",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon40.png",
+      "filename": "AppIcon40px.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon29.png",
+      "filename": "AppIcon29px.png",
       "size": "29x29",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon58.png",
+      "filename": "Small.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon40.png",
+      "filename": "AppIcon40px-1.png",
       "size": "40x40",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon80.png",
+      "filename": "AppIcon80px.png",
       "size": "40x40",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "Artboard 1.png",
+      "filename": "Artboard 1-1.png",
       "size": "83.5x83.5",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon76.png",
+      "filename": "AppIcon76px.png",
       "size": "76x76",
       "scale": "1x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon152.png",
+      "filename": "AppIcon152px.png",
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "Icon1024.png",
+      "filename": "AppIcon1024px.png",
       "size": "1024x1024",
       "scale": "1x",
       "idiom": "ios-marketing"
@@ -245,5 +245,8 @@
   "info": {
     "version": 1,
     "author": "xcode"
+  },
+  "properties": {
+    "pre-rendered": true
   }
 }

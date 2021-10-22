@@ -27,45 +27,43 @@ namespace GroundStation
         }
 
         
-
-        ConfigFile configuration = new ConfigFile("testconfig23");
-        UIconsole myConsole = new UIconsole(new CoreGraphics.CGRect(50, 130, 600, 200));           //gui Console
-        UIMulitView myMulitView;      //Multi View
-
         
+        ConfigFile configuration = new ConfigFile("testconfig23");
+        UIconsole myConsole = new UIconsole(new CoreGraphics.CGRect(100, 800, 800, 200));
+        UIMulitView myMulitView;
+        UISegmentedControl ChoseView;
+
+
+
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-            myMulitView = new UIMulitView(new CoreGraphics.CGRect(155, 500, 1000, 400), alpha);
+            
+            
             alpha.TelemetryUpdate += this.updateUIValues;
+
+            myMulitView = new UIMulitView(new CoreGraphics.CGRect(100, 120, 1000, 750), alpha);
             myMulitView.rerender(0);
+
+            View.BackgroundColor = UIColor.SystemBackgroundColor;
 
             UILabel flightTitle = new UILabel();
             flightTitle.Text = "Flight #13";
-            flightTitle.Frame = new CoreGraphics.CGRect(105, 180, 200, 50);
+            flightTitle.Frame = new CoreGraphics.CGRect(1180, 130, 200, 50);
             View.AddSubview(flightTitle);
 
-
-
-            UIButton abortFlight = new UIButton();                                              //abort flight button
+            UIButton abortFlight = new UIButton();
             abortFlight.SetTitle("Abort Flight", new UIControlState());
             abortFlight.Frame = new CoreGraphics.CGRect(1180, 180, 150, 150);
-            abortFlight.BackgroundColor = UIColor.Red;
+            abortFlight.BackgroundColor = UIColor.SystemRedColor;
             abortFlight.AddTarget(AbortFlightPressed, UIControlEvent.TouchDown);
             View.AddSubview(abortFlight);
 
-
-            
             View.AddSubview(myConsole);
 
-
-
-
-
-            UISegmentedControl ChoseView = new UISegmentedControl();                            //Schalter für die Auswahl von ansichten
-            ChoseView.Frame = new CoreGraphics.CGRect(155, 100, 1000, 40);
+            ChoseView = new UISegmentedControl();
+            ChoseView.Frame = new CoreGraphics.CGRect(100, 40, 1000, 40);
             ChoseView.InsertSegment("Standby", 0, true);
             ChoseView.InsertSegment("Preflight", 1, true);
             ChoseView.InsertSegment("Inflight", 2, true);
@@ -73,28 +71,19 @@ namespace GroundStation
             ChoseView.SelectedSegment = 0 ;
             View.AddSubview(ChoseView);
 
-            View.AddSubview(myMulitView);                                                      //add multiview
-
-
-
-            //configuration.AddNewParameter("test1", "value134");
-
-            
-            
-
-
-
-
-
-
+            View.AddSubview(myMulitView);
         }
 
         public void ViewHasChanged(object sender, EventArgs e)
         {
             UISegmentedControl currentSegment = sender as UISegmentedControl;
 
-            
-            myMulitView.rerender((int)currentSegment.SelectedSegment);
+            if(!myMulitView.rerender(UIMulitView.intToStates((int)currentSegment.SelectedSegment)))
+            {
+                var alert = UIAlertController.Create("Checklist!", "Not all elements of the checklist have been completed!", UIAlertControllerStyle.Alert);
+                alert.AddAction(UIAlertAction.Create("I know the risk", UIAlertActionStyle.Cancel, null));
+                PresentViewController(alert, animated: true, completionHandler: null);
+            }
        
         }
 
@@ -110,7 +99,7 @@ namespace GroundStation
             Invoke(new Action(() =>
             {
                 myConsole.WriteLine(telemetry.rawData);
-                myMulitView.updateInFlightView(telemetry.rawData);
+                myMulitView.updateInFlightView(telemetry);
             }), 0);
         }
 

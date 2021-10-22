@@ -8,44 +8,44 @@ namespace GroundStation
     {
 
         public List<CheckBox> checkBoxes = new List<CheckBox>();
-        
 
+        public int autoCheckNumber = -1;
 
-        public Checklist(CoreGraphics.CGRect frameNew)
+        public Checklist(CoreGraphics.CGRect frameNew, Dictionary<string, bool> ListOfCheckListItems, Alpha connectedVehicle)
         {
             this.Frame = frameNew;
-        }
-        public void addItem(string name)
-        {
-            checkBoxes.Add(new CheckBox(name,new CoreGraphics.CGRect(0,0,500,50)));
-            int activeItem = checkBoxes.Count - 1;
-            checkBoxes[activeItem].Frame = new CoreGraphics.CGRect(0, activeItem * checkBoxes[activeItem].Frame.Height , this.Frame.Width, this.Frame.Height);                  // Abstand von check Punkte
-            this.AddSubview(checkBoxes[activeItem]);
+            int i = 0;
+            foreach(KeyValuePair<string,bool> kyp in ListOfCheckListItems)
+            {
+                checkBoxes.Add(new CheckBox(kyp.Key, new CoreGraphics.CGRect(0, (50+10)*i, 500, 50), connectedVehicle, kyp.Value));
+                if(kyp.Value)
+                {
+                    autoCheckNumber = i;
+                }
+                this.AddSubview(checkBoxes[i]);
+                i++;
+            }
             
-
-
         }
+
+
 
         public bool isListOK()
         {
-            Console.WriteLine("ListOK request");
+            bool res = true;
             foreach (CheckBox element in checkBoxes)
             {
-                Console.WriteLine();
-                if (element.schalter.On)
+                if (!element.isChecked())
                 {
-                    //Console.WriteLine("List element OK");
+                    res =  false;
                 }
-                else
-                {
-                    //Console.WriteLine("List element not OK");
-                    return false;
-                }
-
             }
-            return true;
-            
-            
+            return res;
+        }
+
+        public void autoCheck(RocketTelemetry telemetry)
+        {
+            checkBoxes[autoCheckNumber].updateAutoComplete(telemetry);
         }
     }
 }

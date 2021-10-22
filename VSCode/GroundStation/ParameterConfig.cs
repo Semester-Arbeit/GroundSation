@@ -6,50 +6,49 @@ namespace GroundStation
     {
 
         private string Name;
+        private double valueEntered = 0;
         private UITextField paramEntry;
         public ParameterConfig(string name, CoreGraphics.CGRect frame)
         {
             this.Name = name;
             this.Frame = frame;
-            this.BackgroundColor = UIColor.FromRGB(240, 240, 240);
+            this.BackgroundColor = UIColor.SecondarySystemBackgroundColor;
 
 
 
-            paramEntry = new UITextField(new CoreGraphics.CGRect(this.Frame.Width-100,10,50,30));
-            paramEntry.BackgroundColor = UIColor.FromRGB(250, 250, 250);
+            paramEntry = new UITextField(new CoreGraphics.CGRect(this.Frame.Width-80,10,70,30));
+            paramEntry.BackgroundColor = UIColor.SecondarySystemFillColor;
+            paramEntry.KeyboardType = UIKeyboardType.NumberPad;
+            paramEntry.AddTarget(InputFieldValueHasChanged, UIControlEvent.AllEvents);
             this.AddSubview(paramEntry);
 
             UILabel paramName = new UILabel();
             paramName.Text = name;
-            paramName.Frame = new CoreGraphics.CGRect(0,0, this.Frame.Width - 100, this.Frame.Height);
+            paramName.Frame = new CoreGraphics.CGRect(5,0, this.Frame.Width - 80, this.Frame.Height);
             this.AddSubview(paramName);
 
 
 
-            UIButton sendParameters = new UIButton();
-            sendParameters.Frame = new CoreGraphics.CGRect(this.Frame.Width - 50, 0, 50, this.Frame.Height);
-            sendParameters.SetTitle("send", UIControlState.Normal);
-     
-            
-            sendParameters.BackgroundColor = UIColor.FromRGB(235, 236, 242);
-            sendParameters.AddTarget(SendParametersPressed, UIControlEvent.TouchUpInside);
-            this.AddSubview(sendParameters);
 
-            UILabel bottomBoarder = new UILabel();
-            bottomBoarder.Frame = new CoreGraphics.CGRect(0, 0, this.Frame.Width, 1);
-            bottomBoarder.BackgroundColor = UIColor.Black;
-            this.AddSubview(bottomBoarder);
 
 
         }
 
 
 
-        private void SendParametersPressed(object sender, EventArgs e)
+        private void InputFieldValueHasChanged(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Send Parameter" + Name +" value "+ paramEntry.Text);
-
+            UITextField uITextField = sender as UITextField;
+            double result = 0;
+            if(uITextField.Text.Length == 1 && uITextField.Text == ".")
+            {
+                uITextField.Text = "0.";
+            }
+            while(!Double.TryParse(uITextField.Text, out result) && uITextField.Text.Length != 0)
+            {
+                uITextField.Text = uITextField.Text.Substring(0, uITextField.Text.Length - 1);
+            }
+            valueEntered = result;
         }
 
 
