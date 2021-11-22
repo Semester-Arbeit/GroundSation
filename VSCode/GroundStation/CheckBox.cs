@@ -9,8 +9,10 @@ namespace GroundStation
         private UISwitch checkSwitch = new UISwitch();
         private UIButton autoCheckButton = new UIButton();
         private UILabel switchText = new UILabel();
-        private UILabel switchBackground = new UILabel();
+        private UIView switchBackground = new UIView();
         private UIActivityIndicatorView autoCheckActivityIndicator = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.White);
+
+        private UIView autoCheckButtonBackground = new UIView();
 
         private Alpha connectedVehicle;
 
@@ -33,18 +35,21 @@ namespace GroundStation
             {
                 autoCheckButton.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70, 9, 60, this.Frame.Height-18);
                 autoCheckButton.SetTitle("Check", UIControlState.Normal);
-                autoCheckButton.BackgroundColor = UIColor.FromRGBA(100,100,100,100);
-                autoCheckButton.Layer.CornerRadius = 10;
-                autoCheckButton.Layer.ShadowColor = new CoreGraphics.CGColor(0,0,0,1);
-                autoCheckButton.Layer.ShadowOffset = new CoreGraphics.CGSize(5, 5);
-                autoCheckButton.Layer.ShadowOpacity = 0.2F;
+
                 autoCheckButton.AddTarget(makeAutoCheck, UIControlEvent.TouchDown);
-                autoCheckButton.AddTarget(ButtonRelease, UIControlEvent.TouchUpInside);
-                autoCheckButton.AddTarget(ButtonRelease, UIControlEvent.TouchUpOutside);
                 this.AddSubview(autoCheckButton);
 
-                autoCheckActivityIndicator.Frame = new CoreGraphics.CGRect(this.Frame.Width - 130, 9, 60, this.Frame.Height - 18);
-                
+                autoCheckButtonBackground.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70, 9, 60, this.Frame.Height - 18);
+                autoCheckButtonBackground.BackgroundColor = UIColor.FromRGBA(100, 100, 100, 100);
+                autoCheckButtonBackground.Layer.CornerRadius = 10;
+                autoCheckButtonBackground.Layer.ShadowColor = new CoreGraphics.CGColor(0, 0, 0, 1);
+                autoCheckButtonBackground.Layer.ShadowOffset = new CoreGraphics.CGSize(5, 5);
+                autoCheckButtonBackground.Layer.ShadowOpacity = 0.2F;
+                this.AddSubview(autoCheckButtonBackground);
+                this.SendSubviewToBack(autoCheckButtonBackground);
+
+                autoCheckActivityIndicator.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70 + (this.Frame.Height - 18), 9, this.Frame.Height - 18, this.Frame.Height - 18);
+                autoCheckActivityIndicator.Alpha = 0;
                 this.AddSubview(autoCheckActivityIndicator);
             }
             else
@@ -55,7 +60,7 @@ namespace GroundStation
             }
 
 
-
+            this.SendSubviewToBack(switchBackground);
 
 
 
@@ -81,27 +86,31 @@ namespace GroundStation
         {
             UIButton uIButton = sender as UIButton;
             autoCheckActivityIndicator.StartAnimating();
-            uIButton.Layer.CornerRadius = 8;
-            uIButton.Layer.ShadowOpacity = 0.5F;
-            uIButton.Frame = new CoreGraphics.CGRect(this.Frame.Width - 69, 10, 58, this.Frame.Height - 20);
+            UIView.Animate(0.5, () => {
+                autoCheckButtonBackground.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70 - (this.Frame.Height - 18), 9, 60 + (this.Frame.Height - 18), this.Frame.Height - 18);
+                autoCheckButton.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70 - (this.Frame.Height - 18), 9, 60, this.Frame.Height - 18);
+                autoCheckActivityIndicator.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70 + (this.Frame.Height - 18)-5, 9, this.Frame.Height - 18, this.Frame.Height - 18);
+                autoCheckActivityIndicator.Alpha = 1;
+            });
             connectedVehicle.getRocketStatus();
             uIButton.Enabled = false;
         }
 
-        private void ButtonRelease(object sender, EventArgs e)
-        {
-            UIButton uIButton = sender as UIButton;
-            uIButton.Layer.CornerRadius = 10;
-            uIButton.Layer.ShadowOpacity = 0.2F;
-            uIButton.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70, 9, 60, this.Frame.Height - 18);
 
-        }
 
         public void updateAutoComplete(RocketTelemetry telemetry)
         {
             autoCheckActivityIndicator.StopAnimating();
             checkStatus = parseTelemetry(telemetry);
-            if(checkStatus)
+
+            UIView.Animate(0.5, () => {
+
+                autoCheckActivityIndicator.Alpha = 0;
+                autoCheckButtonBackground.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70, 9, 60, this.Frame.Height - 18);
+                autoCheckButton.Frame = new CoreGraphics.CGRect(this.Frame.Width - 70, 9, 60, this.Frame.Height - 18);
+            });
+
+            if (checkStatus)
             {
                 switchBackground.BackgroundColor = UIColor.SystemGreenColor;
             }
@@ -116,11 +125,7 @@ namespace GroundStation
             Console.WriteLine(telemetry.rawData);
             var splitedData = telemetry.rawData.Split(',');
             for(int i =0; i < splitedData.Length-1; i++)
-            {   if(splitedData[i] == "E")
-                {
-                    return true;
-                }
-
+            {
                 if(splitedData[i] != "1")
                 {
                     return false;

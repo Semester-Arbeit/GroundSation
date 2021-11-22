@@ -771,7 +771,7 @@ ldr x16, [x16, #336]
 .word 0xfd4023a2
 .word 0xfd4027a3
 .word 0xf9400341
-.word 0xf9413830
+.word 0xf9413c30
 .word 0xd63f0200
 .word 0xf9400fb1
 .word 0xf940c631
@@ -1745,13 +1745,13 @@ _mono_aot_file_info:
 	.quad unbox_trampoline_addresses
 
 	.long 51,584,22,14,2,102,387000831,0
-	.long 2431,128,8,8,8,9,8388607,0
-	.long 4,25,3384,0,0,944,416,208
+	.long 2443,128,8,8,8,9,8388607,0
+	.long 4,25,3400,0,0,944,416,208
 	.long 0,344,392,256,0,184,40,936
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
-	.byte 213,44,28,60,12,140,77,251,134,177,94,212,51,215,251,190
+	.byte 198,221,205,6,144,66,111,49,135,252,42,50,229,26,71,170
 	.globl _mono_aot_module_Microcharts_iOS_info
 	.align 3
 _mono_aot_module_Microcharts_iOS_info:

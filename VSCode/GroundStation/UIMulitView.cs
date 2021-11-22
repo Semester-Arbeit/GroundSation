@@ -23,7 +23,7 @@ namespace GroundStation
         {
             this.Frame = Frame;
             myPreflightView = new PreflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height), connectedVehicle);
-            myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height));
+            myStandbyView = new StandByView(new CoreGraphics.CGRect(0,0,this.Frame.Width,this.Frame.Height), connectedVehicle);
             myInflightView = new InflightView(new CoreGraphics.CGRect(0, 0, this.Frame.Width, this.Frame.Height), connectedVehicle);
             
             
@@ -40,14 +40,19 @@ namespace GroundStation
 
         public void updateInFlightView(RocketTelemetry telemetry)
         {
-            if(telemetry.statusUpdate)
+            switch(telemetry.statusUpdate)
             {
-                myPreflightView.autoCheck(telemetry);
+                case RocketTelemetry.statusUpdateSender.standby:
+                    myStandbyView.newParameters(telemetry);
+                    break;
+                case RocketTelemetry.statusUpdateSender.preFilght:
+                    myPreflightView.autoCheck(telemetry);
+                    break;
+                default:
+                    myInflightView.updateCharts(telemetry.rawData);
+                    break;
             }
-            else
-            {
-                myInflightView.updateCharts(telemetry.rawData);
-            }
+            
             
         }
 

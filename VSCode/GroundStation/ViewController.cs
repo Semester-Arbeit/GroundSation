@@ -58,6 +58,10 @@ namespace GroundStation
             abortFlight.Frame = new CoreGraphics.CGRect(1180, 180, 150, 150);
             abortFlight.BackgroundColor = UIColor.SystemRedColor;
             abortFlight.AddTarget(AbortFlightPressed, UIControlEvent.TouchDown);
+            abortFlight.Layer.CornerRadius = 10;
+            abortFlight.Layer.ShadowColor = new CoreGraphics.CGColor(0, 0, 0, 1);
+            abortFlight.Layer.ShadowOffset = new CoreGraphics.CGSize(5, 5);
+            abortFlight.Layer.ShadowOpacity = 0.2F;
             View.AddSubview(abortFlight);
 
             View.AddSubview(myConsole);

@@ -10,19 +10,19 @@ namespace GroundStation
     public class ValuePlot : UIView
     {
 
-        BarChart myChart = new BarChart();
-        ChartView myChartView = new ChartView();
+        private BarChart myChart = new BarChart();
+        private ChartView myChartView = new ChartView();
         public List<ChartEntry> valueEntries = new List<ChartEntry>();
         private string dataPointColor = "";
+        private UILabel title;
 
         public ValuePlot(CoreGraphics.CGRect frame, string name, UIColor titelBackgroundColor, int MaxValue = 100, int MinValue = -100, String backgroundColor = "#16131b")
         {
 
             this.Frame = frame;
-            UILabel title = new UILabel();
-            title.Text = name;
+            title = new UILabel();
             title.BackgroundColor = titelBackgroundColor;
-            title.Frame = new CoreGraphics.CGRect(0, 0, 100, 20);
+            title.Frame = new CoreGraphics.CGRect(0, 0, frame.Width, 20);
             this.AddSubview(title);
             this.dataPointColor = backgroundColor;
 
@@ -36,7 +36,7 @@ namespace GroundStation
 
 
             myChart.MinValue = MinValue;
-            myChart.MaxValue = MaxValue;                                               //chart from -100 bis 100
+            myChart.MaxValue = MaxValue;                                             
             myChart.LabelTextSize = 10;
 
             myChart.BackgroundColor = SKColor.Parse(getSystemColorAsString());
@@ -52,11 +52,11 @@ namespace GroundStation
         public void AddNewValue(float valueDouble)
         {
             float value = valueDouble;
-            Console.WriteLine("value changed");
             valueEntries[0] = new ChartEntry(value){
                 Color = SKColor.Parse(dataPointColor)
             };
             myChart.IsAnimated = false;
+            title.Text = value.ToString();
 
             this.AddSubview(myChartView);
         }

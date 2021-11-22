@@ -69,7 +69,26 @@ namespace GroundStation
         public void getRocketStatus()
         {
             sendData("S");
-            startListener(0, true);
+            startListener(0,RocketTelemetry.statusUpdateSender.preFilght, false);
+        }
+
+        public void getParameters()
+        {
+            sendData("G");
+            startListener(0, RocketTelemetry.statusUpdateSender.standby, false);
+        }
+
+        public void sendNewData(string data)
+        {
+            sendData("P");
+            sendData(data);
+        }
+
+
+        public void getSensorData()
+        {
+            sendData("I");
+            startListener(0, RocketTelemetry.statusUpdateSender.inFlight, false);
         }
 
         public void stopReceivingData()
@@ -77,7 +96,7 @@ namespace GroundStation
             this.stopListening = true;
         }
 
-        public async void startListener(int peridticTelemetryUpdate = 3, bool sUpdate = false)
+        public async void startListener(int peridticTelemetryUpdate = 4, RocketTelemetry.statusUpdateSender sUpdate = RocketTelemetry.statusUpdateSender.inFlight, bool dataLogging = true)
         {
             UdpClient receivingUdpClient = new UdpClient(2390);
             IPEndPoint RemoteIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
@@ -102,7 +121,11 @@ namespace GroundStation
                 i = 0;
                 while (returnData != "E" && !stopListening)
                 {
-                    FlightData.AppendLine(returnData);
+                    if(dataLogging)
+                    {
+                        FlightData.AppendLine(returnData);
+                    }
+                    
                     if (i >= peridticTelemetryUpdate)
                     {
                         TelemetryUpdate(new RocketTelemetry()
@@ -111,7 +134,7 @@ namespace GroundStation
                             statusUpdate = sUpdate
 
                         });
-                        await Task.Delay(1);
+                        await Task.Delay(3);
                         i = 0;
                     }
                     i++;

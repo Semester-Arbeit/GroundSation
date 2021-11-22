@@ -1,37 +1,36 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/CheckBox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/StandbyView.cs">
     <Files>
-      <File FileName="GroundStation/UIMulitView.cs" Line="45" Column="42" IsPinned="True" />
+      <File FileName="GroundStation/UIMulitView.cs" Line="52" Column="35" IsPinned="True" />
       <File FileName="GroundStation/UIStatusDisplay.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="GroundStation/ViewController.cs" Line="102" Column="47" IsPinned="True" />
-      <File FileName="GroundStation/HistoryPlot.cs" Line="35" Column="66" IsPinned="True" />
-      <File FileName="GroundStation/StandbyView.cs" Line="10" Column="55" IsPinned="True" />
-      <File FileName="GroundStation/InflightView.cs" Line="93" Column="46" IsPinned="True" />
-      <File FileName="GroundStation/Alpha.cs" Line="124" Column="14" IsPinned="True" />
+      <File FileName="GroundStation/ViewController.cs" IsPinned="True" />
+      <File FileName="GroundStation/HistoryPlot.cs" Line="1" Column="1" IsPinned="True" />
+      <File FileName="GroundStation/StandbyView.cs" Line="88" Column="14" IsPinned="True" />
+      <File FileName="GroundStation/InflightView.cs" IsPinned="True" />
+      <File FileName="GroundStation/Alpha.cs" IsPinned="True" />
       <File FileName="GroundStation/Info.plist" IsPinned="True" />
-      <File FileName="GroundStation/PreflightView.cs" Line="41" Column="5" />
-      <File FileName="GroundStation/ConfigFile.cs" Line="1" Column="1" />
-      <File FileName="GroundStation/RocketTelemetry.cs" Line="7" Column="33" />
-      <File FileName="GroundStation/UIconsole.cs" Line="41" Column="10" />
-      <File FileName="GroundStation/Main.cs" Line="7" Column="60" />
-      <File FileName="GroundStation/ValuePlot.cs" Line="64" Column="45" />
-      <File FileName="GroundStation/ParameterConfig.cs" Line="48" Column="14" />
-      <File FileName="GroundStation/CheckBox.cs" Line="114" Column="62" />
-      <File FileName="GroundStation/AppDelegate.cs" Line="17" Column="10" />
-      <File FileName="GroundStation/Checklist.cs" Line="41" Column="18" />
+      <File FileName="GroundStation/PreflightView.cs" />
+      <File FileName="GroundStation/ConfigFile.cs" />
+      <File FileName="GroundStation/RocketTelemetry.cs" />
+      <File FileName="GroundStation/UIconsole.cs" />
+      <File FileName="GroundStation/Main.cs" />
+      <File FileName="GroundStation/ValuePlot.cs" />
+      <File FileName="GroundStation/ParameterConfig.cs" />
+      <File FileName="GroundStation/CheckBox.cs" />
+      <File FileName="GroundStation/AppDelegate.cs" />
+      <File FileName="GroundStation/Checklist.cs" />
+      <File FileName="../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.Shared.targets" />
+      <File FileName="GroundStation/UIDataSnapshot.cs" Line="22" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
-              <Node name="CheckBox.cs" selected="True" />
+              <Node name="StandbyView.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

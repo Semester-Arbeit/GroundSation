@@ -51,6 +51,16 @@ namespace GroundStation
             valueEntered = result;
         }
 
+        public string getTextFliedValue()
+        {
+            return paramEntry.Text;
+        }
+
+        public void setTextFieldValue(string text)
+        {
+            paramEntry.Text = text;
+        }
+
 
 
     }
