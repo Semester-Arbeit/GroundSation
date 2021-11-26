@@ -30467,7 +30467,7 @@ _mono_aot_file_info:
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
-	.byte 35,46,241,101,147,194,93,87,188,19,153,153,3,164,4,231
+	.byte 255,96,14,229,233,82,219,79,91,179,134,174,166,239,175,87
 	.globl _mono_aot_module_SkiaSharp_Views_iOS_info
 	.align 3
 _mono_aot_module_SkiaSharp_Views_iOS_info:

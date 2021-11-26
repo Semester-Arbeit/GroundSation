@@ -43,6 +43,16 @@ namespace GroundStation
         private UIDataSnapshot currentAccY = new UIDataSnapshot("AccY", "m/s2");
         private UIDataSnapshot currentAccZ = new UIDataSnapshot("AccZ", "m/s2");
 
+        private UIDataSnapshot currentSpeedX = new UIDataSnapshot("SpeedX", "m/s");
+        private UIDataSnapshot currentSpeedY = new UIDataSnapshot("SpeedY", "m/s");
+        private UIDataSnapshot currentSpeedZ = new UIDataSnapshot("SpeedZ", "m/s");
+
+        private UIDataSnapshot currentCorrrectionPitch = new UIDataSnapshot("corrP", "°");
+        private UIDataSnapshot currentCorrrectionRoll = new UIDataSnapshot("corrR", "°");
+        private UIDataSnapshot currentCorrrectionYaw = new UIDataSnapshot("corrY", "°");
+
+        private UIDataSnapshot currentPower = new UIDataSnapshot("PowerOut", "%");
+
         public InflightView(CoreGraphics.CGRect Frame, Alpha connectedVehicle)
         {
             this.Frame = Frame;
@@ -133,6 +143,34 @@ namespace GroundStation
             currentAccZ.setValue(0);
             currentAccZ.Frame = new CoreGraphics.CGRect(x + 2 * 150, y + 50 * 3, 150, 50);
             this.AddSubview(currentAccZ);
+
+            currentSpeedX.setValue(0);
+            currentSpeedX.Frame = new CoreGraphics.CGRect(x + 0 * 150, y + 50 * 4, 150, 50);
+            this.AddSubview(currentSpeedX);
+
+            currentSpeedY.setValue(0);
+            currentSpeedY.Frame = new CoreGraphics.CGRect(x + 1 * 150, y + 50 * 4, 150, 50);
+            this.AddSubview(currentSpeedY);
+
+            currentSpeedZ.setValue(0);
+            currentSpeedZ.Frame = new CoreGraphics.CGRect(x + 2 * 150, y + 50 * 4, 150, 50);
+            this.AddSubview(currentSpeedZ);
+
+            currentCorrrectionPitch.setValue(0);
+            currentCorrrectionPitch.Frame = new CoreGraphics.CGRect(x + 0 * 150, y + 50 * 5, 150, 50);
+            this.AddSubview(currentCorrrectionPitch);
+
+            currentCorrrectionRoll.setValue(0);
+            currentCorrrectionRoll.Frame = new CoreGraphics.CGRect(x + 1 * 150, y + 50 * 5, 150, 50);
+            this.AddSubview(currentCorrrectionRoll);
+
+            currentCorrrectionYaw.setValue(0);
+            currentCorrrectionYaw.Frame = new CoreGraphics.CGRect(x + 2 * 150, y + 50 * 5, 150, 50);
+            this.AddSubview(currentCorrrectionYaw);
+
+            currentPower.setValue(0);
+            currentPower.Frame = new CoreGraphics.CGRect(x + 0 * 150, y + 50 * 6, 150, 50);
+            this.AddSubview(currentPower);
         }
 
 
@@ -161,6 +199,16 @@ namespace GroundStation
             currentAccX.setValue(float.Parse(parsedData[7]));
             currentAccY.setValue(float.Parse(parsedData[8]));
             currentAccZ.setValue(float.Parse(parsedData[9]));
+
+            currentSpeedX.setValue(float.Parse(parsedData[13]));
+            currentSpeedY.setValue(float.Parse(parsedData[14]));
+            currentSpeedZ.setValue(float.Parse(parsedData[15]));
+
+            currentCorrrectionPitch.setValue(float.Parse(parsedData[16]));
+            currentCorrrectionRoll.setValue(float.Parse(parsedData[17]));
+            currentCorrrectionYaw.setValue(float.Parse(parsedData[18]));
+
+            currentPower.setValue(80 + float.Parse(parsedData[19]));
 
             PitchHistory.AddNewValue(pitch);
             PitchAngle.AddNewValue(pitch);

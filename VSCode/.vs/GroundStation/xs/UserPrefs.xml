@@ -1,13 +1,13 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/StandbyView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/InflightView.cs">
     <Files>
       <File FileName="GroundStation/UIMulitView.cs" Line="52" Column="35" IsPinned="True" />
-      <File FileName="GroundStation/UIStatusDisplay.cs" Line="1" Column="1" IsPinned="True" />
+      <File FileName="GroundStation/UIStatusDisplay.cs" IsPinned="True" />
       <File FileName="GroundStation/ViewController.cs" IsPinned="True" />
-      <File FileName="GroundStation/HistoryPlot.cs" Line="1" Column="1" IsPinned="True" />
-      <File FileName="GroundStation/StandbyView.cs" Line="88" Column="14" IsPinned="True" />
-      <File FileName="GroundStation/InflightView.cs" IsPinned="True" />
-      <File FileName="GroundStation/Alpha.cs" IsPinned="True" />
+      <File FileName="GroundStation/HistoryPlot.cs" IsPinned="True" />
+      <File FileName="GroundStation/StandbyView.cs" Line="108" Column="1" IsPinned="True" />
+      <File FileName="GroundStation/InflightView.cs" Line="178" Column="40" IsPinned="True" />
+      <File FileName="GroundStation/Alpha.cs" Line="91" Column="1" IsPinned="True" />
       <File FileName="GroundStation/Info.plist" IsPinned="True" />
       <File FileName="GroundStation/PreflightView.cs" />
       <File FileName="GroundStation/ConfigFile.cs" />
@@ -20,14 +20,15 @@
       <File FileName="GroundStation/AppDelegate.cs" />
       <File FileName="GroundStation/Checklist.cs" />
       <File FileName="../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.Shared.targets" />
-      <File FileName="GroundStation/UIDataSnapshot.cs" Line="22" Column="10" />
+      <File FileName="GroundStation/UIDataSnapshot.cs" />
+      <File FileName="GroundStation/DataLogger.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
-              <Node name="StandbyView.cs" selected="True" />
+              <Node name="InflightView.cs" selected="True" />
             </Node>
           </Node>
         </State>

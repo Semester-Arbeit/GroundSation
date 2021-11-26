@@ -84,6 +84,11 @@ namespace GroundStation
             sendData(data);
         }
 
+        public void calibrate()
+        {
+            sendData("C");
+        }
+
 
         public void getSensorData()
         {
@@ -150,7 +155,10 @@ namespace GroundStation
                 Console.WriteLine(e);
             }
             receivingUdpClient.Close();
-            FlightData.WriteFile();
+            if(dataLogging)
+            {
+                FlightData.WriteFile();
+            }
         }
     }
 }

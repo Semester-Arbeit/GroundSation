@@ -115884,7 +115884,7 @@ _mono_aot_file_info:
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
-	.byte 103,33,223,62,250,127,186,16,48,1,253,147,207,69,71,35
+	.byte 209,149,156,179,94,217,22,90,144,141,91,105,50,174,2,223
 	.globl _mono_aot_module_SkiaSharp_info
 	.align 3
 _mono_aot_module_SkiaSharp_info:

@@ -28,6 +28,12 @@ namespace GroundStation
 
         private UIProgressView sendParamProgressView = new UIProgressView();
 
+        private UILabel calibrationTitle = new UILabel();
+
+        private UIButton calibrationButton = new UIButton();
+        private UIActivityIndicatorView calibrationProgressView = new UIActivityIndicatorView(UIActivityIndicatorViewStyle.Gray);
+        private UIView backgroundCalibrationButton = new UIView();
+
         public StandByView(CoreGraphics.CGRect Frame, Alpha connectedVehicle, int numberOfParameters = 12)
         {
             this.Frame = Frame;
@@ -80,6 +86,26 @@ namespace GroundStation
             this.AddSubview(backgroundLoadButton);
             this.SendSubviewToBack(backgroundLoadButton);
 
+            calibrationButton.SetTitle("Cal", new UIControlState());
+            calibrationButton.Frame = new CoreGraphics.CGRect(0, 300, 100, 50);
+            calibrationButton.BackgroundColor = UIColor.SystemYellowColor;
+            calibrationButton.Layer.CornerRadius = 10;
+            calibrationButton.AddTarget(calibrateSystem, UIControlEvent.TouchDown);
+            this.AddSubview(calibrationButton);
+
+            calibrationProgressView.Frame = new CoreGraphics.CGRect(40, 300, 30, 50);
+            calibrationProgressView.Alpha = 0;
+            this.AddSubview(calibrationProgressView);
+
+            backgroundCalibrationButton.Frame = new CoreGraphics.CGRect(0, 300, 100, 50);
+            backgroundCalibrationButton.BackgroundColor = UIColor.SystemYellowColor;
+            backgroundCalibrationButton.Layer.CornerRadius = 10;
+            backgroundCalibrationButton.Layer.ShadowColor = new CoreGraphics.CGColor(0, 0, 0, 1);
+            backgroundCalibrationButton.Layer.ShadowOffset = new CoreGraphics.CGSize(5, 5);
+            backgroundCalibrationButton.Layer.ShadowOpacity = 0.2F;
+            this.AddSubview(backgroundCalibrationButton);
+            this.SendSubviewToBack(backgroundCalibrationButton);
+
             configurationParameters.Add(new List<string> { "Pitch Ki (p)", "Pitch Kp (v)", "XPos Ki (p)", "XPos Kp (v)" });
             configurationParameters.Add(new List<string> { "Roll  Ki (p)", "Roll  Kp (v)", "YPos Ki (p)", "YPos Kp (v)" });
             configurationParameters.Add(new List<string> { "Yaw   Ki (p)", "Yaw   Kp (v)", "Alt  Ki (p)", "Alt  Kp (v)" });
@@ -92,6 +118,17 @@ namespace GroundStation
                     this.AddSubview(listOfParameterConfigs[i*3 + m]);
                 }
             }
+        }
+
+        private void loadParamButtonPressed(object sender, EventArgs e)
+        {
+            connectedVehicle.getParameters();
+            UIView.Animate(0.5, () => {
+                loadParamButton.Frame = new CoreGraphics.CGRect(850, 50, 60, 50);
+                autoCheckActivityIndicator.Frame = new CoreGraphics.CGRect(910, 50, 30, 50);
+                autoCheckActivityIndicator.Alpha = 1;
+            });
+            autoCheckActivityIndicator.StartAnimating();
         }
 
         private async void sendParameters(object sender, EventArgs e)
@@ -124,15 +161,24 @@ namespace GroundStation
             });
         }
 
-        private void loadParamButtonPressed(object sender, EventArgs e)
+        private async void calibrateSystem(object sender, EventArgs e)
         {
-            connectedVehicle.getParameters();
+            connectedVehicle.calibrate();
             UIView.Animate(0.5, () => {
-                loadParamButton.Frame = new CoreGraphics.CGRect(850, 50, 60, 50);
-                autoCheckActivityIndicator.Frame = new CoreGraphics.CGRect(910, 50, 30, 50);
-                autoCheckActivityIndicator.Alpha = 1;
+                calibrationButton.Frame = new CoreGraphics.CGRect(0, 300, 60, 50);
+                calibrationProgressView.Frame = new CoreGraphics.CGRect(60, 300, 30, 50);
+                calibrationProgressView.Alpha = 1;
             });
-            autoCheckActivityIndicator.StartAnimating();
+
+            calibrationProgressView.StartAnimating();
+            await Task.Delay(10000);
+            UIView.Animate(0.5, () => {
+                calibrationButton.Frame = new CoreGraphics.CGRect(0, 300, 100, 50);
+                calibrationProgressView.Frame = new CoreGraphics.CGRect(40, 300, 30, 50);
+                calibrationProgressView.Alpha = 1;
+            });
+            calibrationProgressView.StopAnimating();
+
         }
 
         public void newParameters(RocketTelemetry telemetry)

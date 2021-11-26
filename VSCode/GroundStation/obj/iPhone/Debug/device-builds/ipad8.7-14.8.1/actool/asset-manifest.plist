@@ -32,30 +32,6 @@
 		<dict>
 			<key>affected-items</key>
 			<array>
-				<string>./AppIcon.appiconset/[][iphone][40x40][][][2x][][]</string>
-			</array>
-			<key>catalog</key>
-			<string>/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/device-builds/ipad8.7-14.8.1/actool/cloned-assets/Assets.xcassets</string>
-			<key>message</key>
-			<string>The file "Icon80.png" for the image set "AppIcon" does not exist.</string>
-			<key>type</key>
-			<string>Missing Content</string>
-		</dict>
-		<dict>
-			<key>affected-items</key>
-			<array>
-				<string>./AppIcon.appiconset/[][iphone][20x20][][][2x][][]</string>
-			</array>
-			<key>catalog</key>
-			<string>/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/device-builds/ipad8.7-14.8.1/actool/cloned-assets/Assets.xcassets</string>
-			<key>message</key>
-			<string>The file "Icon40.png" for the image set "AppIcon" does not exist.</string>
-			<key>type</key>
-			<string>Missing Content</string>
-		</dict>
-		<dict>
-			<key>affected-items</key>
-			<array>
 				<string>./AppIcon.appiconset/[][iphone][29x29][][][2x][][]</string>
 			</array>
 			<key>catalog</key>
@@ -98,6 +74,30 @@
 			<string>/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/device-builds/ipad8.7-14.8.1/actool/cloned-assets/Assets.xcassets</string>
 			<key>message</key>
 			<string>The file "Icon58.png" for the image set "AppIcon" does not exist.</string>
+			<key>type</key>
+			<string>Missing Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcon.appiconset/[][iphone][20x20][][][2x][][]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/device-builds/ipad8.7-14.8.1/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>The file "Icon40.png" for the image set "AppIcon" does not exist.</string>
+			<key>type</key>
+			<string>Missing Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcon.appiconset/[][iphone][40x40][][][2x][][]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/device-builds/ipad8.7-14.8.1/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>The file "Icon80.png" for the image set "AppIcon" does not exist.</string>
 			<key>type</key>
 			<string>Missing Content</string>
 		</dict>
