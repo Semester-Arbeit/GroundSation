@@ -26,6 +26,7 @@
 @class GroundStation_ValuePlot;
 @class GroundStation_UIStatusDisplay;
 @class GroundStation_UIDataSnapshot;
+@class GroundStation_UIFrequencyView;
 @class ViewController;
 @class GroundStation_UIMulitView;
 @class GroundStation_StandByView;
@@ -158,6 +159,16 @@
 	-(uint32_t) xamarinGetGCHandle;
 	-(void) xamarinSetGCHandle: (uint32_t) gchandle;
 	-(BOOL) conformsToProtocol:(void *)p0;
+@end
+
+@interface GroundStation_UIFrequencyView : UILabel {
+}
+	-(void) release;
+	-(id) retain;
+	-(uint32_t) xamarinGetGCHandle;
+	-(void) xamarinSetGCHandle: (uint32_t) gchandle;
+	-(BOOL) conformsToProtocol:(void *)p0;
+	-(id) init;
 @end
 
 @interface ViewController : UIViewController {

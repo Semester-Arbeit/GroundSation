@@ -3,6 +3,7 @@ using UIKit;
 using Microcharts;
 using Microcharts.iOS;
 using SkiaSharp;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace GroundStation
@@ -50,6 +51,8 @@ namespace GroundStation
         private UIDataSnapshot currentCorrrectionPitch = new UIDataSnapshot("corrP", "°");
         private UIDataSnapshot currentCorrrectionRoll = new UIDataSnapshot("corrR", "°");
         private UIDataSnapshot currentCorrrectionYaw = new UIDataSnapshot("corrY", "°");
+
+        private UIFrequencyView currentProcessorPerformace = new UIFrequencyView();
 
         private UIDataSnapshot currentPower = new UIDataSnapshot("PowerOut", "%");
 
@@ -171,44 +174,48 @@ namespace GroundStation
             currentPower.setValue(0);
             currentPower.Frame = new CoreGraphics.CGRect(x + 0 * 150, y + 50 * 6, 150, 50);
             this.AddSubview(currentPower);
+
+            currentProcessorPerformace.Frame = new CoreGraphics.CGRect(x + 0 * 150, y + 50 * 7, 150, 50);
+            this.AddSubview(currentProcessorPerformace);
         }
 
 
 
-        public void updateCharts(string rawData)
+        public void updateCharts(List<double> parsedData)
         {
-            var parsedData = rawData.Split(',');
-            float pitch = float.Parse(parsedData[1]);
-            float roll = float.Parse(parsedData[2]);
-            float yaw = float.Parse(parsedData[3]);
-            float alt = float.Parse(parsedData[12]);
+            double pitch = parsedData[1];
+            double roll = parsedData[2];
+            double yaw = parsedData[3];
+            double alt = parsedData[12];
 
-            currentPitch.setValue(float.Parse(parsedData[1]));
-            currentRoll.setValue(float.Parse(parsedData[2]));
-            currentYaw.setValue(float.Parse(parsedData[3]));
+            currentPitch.setValue(parsedData[1]);
+            currentRoll.setValue(parsedData[2]);
+            currentYaw.setValue(parsedData[3]);
 
-            currentAlt.setValue(float.Parse(parsedData[12]));
-            currentLat.setValue(float.Parse(parsedData[10]));
-            currentLong.setValue(float.Parse(parsedData[11]));
+            currentAlt.setValue(parsedData[12]);
+            currentLat.setValue(parsedData[10]);
+            currentLong.setValue(parsedData[11]);
 
 
-            currentGyroX.setValue(float.Parse(parsedData[4]));
-            currentGyroY.setValue(float.Parse(parsedData[5]));
-            currentGyroZ.setValue(float.Parse(parsedData[6]));
+            currentGyroX.setValue(parsedData[4]);
+            currentGyroY.setValue(parsedData[5]);
+            currentGyroZ.setValue(parsedData[6]);
 
-            currentAccX.setValue(float.Parse(parsedData[7]));
-            currentAccY.setValue(float.Parse(parsedData[8]));
-            currentAccZ.setValue(float.Parse(parsedData[9]));
+            currentAccX.setValue(parsedData[7]);
+            currentAccY.setValue(parsedData[8]);
+            currentAccZ.setValue(parsedData[9]);
 
-            currentSpeedX.setValue(float.Parse(parsedData[13]));
-            currentSpeedY.setValue(float.Parse(parsedData[14]));
-            currentSpeedZ.setValue(float.Parse(parsedData[15]));
+            currentSpeedX.setValue(parsedData[13]);
+            currentSpeedY.setValue(parsedData[14]);
+            currentSpeedZ.setValue(parsedData[15]);
 
-            currentCorrrectionPitch.setValue(float.Parse(parsedData[16]));
-            currentCorrrectionRoll.setValue(float.Parse(parsedData[17]));
-            currentCorrrectionYaw.setValue(float.Parse(parsedData[18]));
+            currentCorrrectionPitch.setValue(parsedData[16]);
+            currentCorrrectionRoll.setValue(parsedData[17]);
+            currentCorrrectionYaw.setValue(parsedData[18]);
 
-            currentPower.setValue(80 + float.Parse(parsedData[19]));
+            currentProcessorPerformace.setValue(parsedData[0]);
+
+            currentPower.setValue(80 + parsedData[19]);
 
             PitchHistory.AddNewValue(pitch);
             PitchAngle.AddNewValue(pitch);

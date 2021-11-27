@@ -159,6 +159,7 @@ namespace GroundStation
                 sendParamProgressView.Alpha = 0;
                 
             });
+            loadParamButtonPressed(sender, e);
         }
 
         private async void calibrateSystem(object sender, EventArgs e)
@@ -179,6 +180,7 @@ namespace GroundStation
             });
             calibrationProgressView.StopAnimating();
 
+            loadParamButtonPressed(sender, e);
         }
 
         public void newParameters(RocketTelemetry telemetry)

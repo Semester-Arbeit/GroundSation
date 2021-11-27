@@ -49,7 +49,7 @@ namespace GroundStation
                     myPreflightView.autoCheck(telemetry);
                     break;
                 default:
-                    myInflightView.updateCharts(telemetry.rawData);
+                    myInflightView.updateCharts(telemetry.parsedData);
                     break;
             }
             

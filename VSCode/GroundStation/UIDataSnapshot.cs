@@ -11,7 +11,7 @@ namespace GroundStation
 
         private int averageOver = 0;
 
-        private List<float> ringBufferForAverage = new List<float>();
+        private List<double> ringBufferForAverage = new List<double>();
 
         public UIDataSnapshot(string valueName, string unit, int averageOver = 40)
         {
@@ -21,7 +21,7 @@ namespace GroundStation
             this.averageOver = averageOver;
         }
 
-        public void setValue(float value)
+        public void setValue(double value)
         {
             ringBufferForAverage.Add(value);
             if (ringBufferForAverage.Count > averageOver)
@@ -32,10 +32,10 @@ namespace GroundStation
             this.Text = valueName + ":" + (Math.Round(calculateAverage(),2)).ToString()  + unit;
         }
 
-        private float calculateAverage()
+        private double calculateAverage()
         {
-            float res = 0;
-            foreach(float val in ringBufferForAverage)
+            double res = 0;
+            foreach(double val in ringBufferForAverage)
             {
                 res += val;
             }

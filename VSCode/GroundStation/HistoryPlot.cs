@@ -130,9 +130,9 @@ namespace GroundStation
 
         }
 
-    public void AddNewValue(float valueDouble)
+    public void AddNewValue(double valueDouble)
     {
-            float value = valueDouble;
+            float value = (float)valueDouble;
             if(valueEntries.Count > 15)
             {
                 valueEntries.Remove(valueEntries[0]);

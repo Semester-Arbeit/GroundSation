@@ -17,4 +17,3 @@
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/GroundStation.csproj.CopyComplete
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/GroundStation.exe
 /Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/GroundStation.pdb
-/Users/tobiasrothlin/Documents/Semesterarbeit/GroundSation/VSCode/GroundStation/obj/iPhone/Debug/GroundStation.csprojAssemblyReference.cache

@@ -102,7 +102,7 @@ namespace GroundStation
         {
             Invoke(new Action(() =>
             {
-                myConsole.WriteLine(telemetry.rawData);
+                myConsole.WriteLine(telemetry);
                 myMulitView.updateInFlightView(telemetry);
             }), 0);
         }

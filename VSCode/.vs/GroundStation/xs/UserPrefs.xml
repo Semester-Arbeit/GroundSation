@@ -1,34 +1,35 @@
 ﻿<Properties StartupConfiguration="{C30853A4-DC28-495E-9412-5977DDED6154}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/InflightView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GroundStation/UIFrequencyView.cs">
     <Files>
-      <File FileName="GroundStation/UIMulitView.cs" Line="52" Column="35" IsPinned="True" />
+      <File FileName="GroundStation/UIMulitView.cs" Line="41" Column="30" IsPinned="True" />
       <File FileName="GroundStation/UIStatusDisplay.cs" IsPinned="True" />
-      <File FileName="GroundStation/ViewController.cs" IsPinned="True" />
-      <File FileName="GroundStation/HistoryPlot.cs" IsPinned="True" />
-      <File FileName="GroundStation/StandbyView.cs" Line="108" Column="1" IsPinned="True" />
-      <File FileName="GroundStation/InflightView.cs" Line="178" Column="40" IsPinned="True" />
-      <File FileName="GroundStation/Alpha.cs" Line="91" Column="1" IsPinned="True" />
+      <File FileName="GroundStation/ViewController.cs" Line="105" Column="29" IsPinned="True" />
+      <File FileName="GroundStation/HistoryPlot.cs" Line="79" Column="18" IsPinned="True" />
+      <File FileName="GroundStation/StandbyView.cs" Line="154" Column="1" IsPinned="True" />
+      <File FileName="GroundStation/InflightView.cs" Line="216" Column="48" IsPinned="True" />
+      <File FileName="GroundStation/Alpha.cs" Line="149" Column="36" IsPinned="True" />
       <File FileName="GroundStation/Info.plist" IsPinned="True" />
+      <File FileName="GroundStation/UIFrequencyView.cs" Line="30" Column="1" IsPinned="True" />
       <File FileName="GroundStation/PreflightView.cs" />
       <File FileName="GroundStation/ConfigFile.cs" />
-      <File FileName="GroundStation/RocketTelemetry.cs" />
-      <File FileName="GroundStation/UIconsole.cs" />
-      <File FileName="GroundStation/Main.cs" />
-      <File FileName="GroundStation/ValuePlot.cs" />
+      <File FileName="GroundStation/RocketTelemetry.cs" Line="9" Column="39" />
+      <File FileName="GroundStation/UIconsole.cs" Line="25" Column="14" />
+      <File FileName="GroundStation/Main.cs" Line="12" Column="1" />
+      <File FileName="GroundStation/ValuePlot.cs" Line="55" Column="53" />
       <File FileName="GroundStation/ParameterConfig.cs" />
       <File FileName="GroundStation/CheckBox.cs" />
       <File FileName="GroundStation/AppDelegate.cs" />
       <File FileName="GroundStation/Checklist.cs" />
       <File FileName="../../../../../../Library/Frameworks/Mono.framework/External/xbuild/Xamarin/iOS/Xamarin.Shared.targets" />
-      <File FileName="GroundStation/UIDataSnapshot.cs" />
-      <File FileName="GroundStation/DataLogger.cs" />
+      <File FileName="GroundStation/UIDataSnapshot.cs" Line="37" Column="28" />
+      <File FileName="GroundStation/DataLogger.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GroundStation" expanded="True">
             <Node name="GroundStation" expanded="True">
-              <Node name="InflightView.cs" selected="True" />
+              <Node name="UIFrequencyView.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -36,10 +37,10 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.GroundStation PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.C3E2BED8-4E6C-4265-B44E-E327557C154C" />
+  <MonoDevelop.Ide.ItemProperties.GroundStation PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.00008027-000205A611E8002E" />
 </Properties>

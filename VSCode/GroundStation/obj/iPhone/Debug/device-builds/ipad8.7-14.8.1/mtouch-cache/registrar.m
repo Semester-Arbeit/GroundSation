@@ -1145,6 +1145,50 @@ exception_handling:;
 	}
 @end
 
+@implementation GroundStation_UIFrequencyView {
+	XamarinObject __monoObjectGCHandle;
+}
+	-(void) release
+	{
+		xamarin_release_trampoline (self, _cmd);
+	}
+
+	-(id) retain
+	{
+		return xamarin_retain_trampoline (self, _cmd);
+	}
+
+	-(uint32_t) xamarinGetGCHandle
+	{
+		return __monoObjectGCHandle.gc_handle;
+	}
+
+	-(void) xamarinSetGCHandle: (uint32_t) gc_handle
+	{
+		__monoObjectGCHandle.gc_handle = gc_handle;
+		__monoObjectGCHandle.native_object = self;
+	}
+
+
+	-(BOOL) conformsToProtocol:(void *)p0
+	{
+		static MonoMethod *managed_method = NULL;
+		return native_to_managed_trampoline_4 (self, _cmd, &managed_method, p0, 0x44E04);
+	}
+
+	-(id) init
+	{
+		static MonoMethod *managed_method = NULL;
+		bool call_super = false;
+		id rv = native_to_managed_trampoline_5 (self, _cmd, &managed_method, &call_super, 0x6700);
+		if (call_super && rv) {
+			struct objc_super super = {  rv, [UILabel class] };
+			rv = ((id (*)(objc_super*, SEL)) objc_msgSendSuper) (&super, @selector (init));
+		}
+		return rv;
+	}
+@end
+
 @implementation ViewController {
 	XamarinObject __monoObjectGCHandle;
 }
@@ -1830,62 +1874,63 @@ exception_handling:;
 		{ NULL, 0x1200 /* #12 'GroundStation_UIStatusDisplay' => 'GroundStation.UIStatusDisplay, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
 		{ NULL, 0x9404 /* #13 'UILabel' => 'UIKit.UILabel, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
 		{ NULL, 0x1500 /* #14 'GroundStation_UIDataSnapshot' => 'GroundStation.UIDataSnapshot, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x8104 /* #15 'UIViewController' => 'UIKit.UIViewController, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x500 /* #16 'ViewController' => 'GroundStation.ViewController, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x600 /* #17 'GroundStation_UIMulitView' => 'GroundStation.UIMulitView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x700 /* #18 'GroundStation_StandByView' => 'GroundStation.StandByView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x800 /* #19 'GroundStation_InflightView' => 'GroundStation.InflightView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x5504 /* #20 'EAGLContext' => 'OpenGLES.EAGLContext, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x6004 /* #21 'CIColor' => 'CoreImage.CIColor, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x6204 /* #22 'CIContext' => 'CoreImage.CIContext, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x6304 /* #23 'CIImage' => 'CoreImage.CIImage, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7104 /* #24 'CALayer' => 'CoreAnimation.CALayer, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7204 /* #25 'CALayerDelegate' => 'CoreAnimation.CALayerDelegate, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7304 /* #26 'CAEAGLLayer' => 'CoreAnimation.CAEAGLLayer, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7504 /* #27 'UIApplication' => 'UIKit.UIApplication, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7904 /* #28 'UIControl' => 'UIKit.UIControl, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7604 /* #29 'UIButton' => 'UIKit.UIButton, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7704 /* #30 'UIColor' => 'UIKit.UIColor, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7804 /* #31 'UIKit_UIControlEventProxy' => 'UIKit.UIControlEventProxy, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0x7A04 /* #32 'UIFont' => 'UIKit.UIFont, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7C04 /* #33 'UIImage' => 'UIKit.UIImage, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7E04 /* #34 'UISegmentedControl' => 'UIKit.UISegmentedControl, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x7F04 /* #35 'UITextField' => 'UIKit.UITextField, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x8204 /* #36 'UIWindow' => 'UIKit.UIWindow, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x8304 /* #37 'UIActivityIndicatorView' => 'UIKit.UIActivityIndicatorView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x8504 /* #38 'UIAlertAction' => 'UIKit.UIAlertAction, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x8704 /* #39 'UIAlertController' => 'UIKit.UIAlertController, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9504 /* #40 'UIProgressView' => 'UIKit.UIProgressView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9804 /* #41 'UIScene' => 'UIKit.UIScene, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9904 /* #42 'UISceneConfiguration' => 'UIKit.UISceneConfiguration, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9A04 /* #43 'UISceneConnectionOptions' => 'UIKit.UISceneConnectionOptions, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9D04 /* #44 'UISceneSession' => 'UIKit.UISceneSession, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9E04 /* #45 'UISlider' => 'UIKit.UISlider, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x9F04 /* #46 'UISwitch' => 'UIKit.UISwitch, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xAB04 /* #47 'NSArray' => 'Foundation.NSArray, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xB504 /* #48 'NSNull' => 'Foundation.NSNull, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xB604 /* #49 'NSRunLoop' => 'Foundation.NSRunLoop, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xB704 /* #50 'NSSet' => 'Foundation.NSSet, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xBA04 /* #51 'NSString' => 'Foundation.NSString, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xBF04 /* #52 'Foundation_NSDispatcher' => 'Foundation.NSDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0xC004 /* #53 '__MonoMac_NSSynchronizationContextDispatcher' => 'Foundation.NSSynchronizationContextDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0xC104 /* #54 'Foundation_NSAsyncDispatcher' => 'Foundation.NSAsyncDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0xC204 /* #55 '__MonoMac_NSAsyncActionDispatcher' => 'Foundation.NSAsyncActionDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0xC304 /* #56 '__MonoMac_NSAsyncSynchronizationContextDispatcher' => 'Foundation.NSAsyncSynchronizationContextDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
-		{ NULL, 0xC404 /* #57 'NSAutoreleasePool' => 'Foundation.NSAutoreleasePool, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xCF04 /* #58 'NSEnumerator' => 'Foundation.NSEnumerator, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xD004 /* #59 'NSException' => 'Foundation.NSException, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0x5C04 /* #60 'GLKit_GLKView__GLKViewDelegate' => 'GLKit.GLKView+_GLKViewDelegate, Xamarin.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x5B04 /* #61 'GLKView' => 'GLKit.GLKView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xAC04 /* #62 'NSData' => 'Foundation.NSData, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xAE04 /* #63 'NSDictionary' => 'Foundation.NSDictionary, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xB304 /* #64 'NSMutableData' => 'Foundation.NSMutableData, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
-		{ NULL, 0xC804 /* #65 '__NSObject_Disposer' => 'Foundation.NSObject+NSObject_Disposer, Xamarin.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x512 /* #66 'SKCanvasView' => 'SkiaSharp.Views.iOS.SKCanvasView, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x210 /* #67 'ChartView' => 'Microcharts.iOS.ChartView, Microcharts.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x612 /* #68 'SkiaSharp_Views_iOS_SKGLLayer' => 'SkiaSharp.Views.iOS.SKGLLayer, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0x712 /* #69 'SKGLView' => 'SkiaSharp.Views.iOS.SKGLView, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
-		{ NULL, 0xB12 /* #70 'SkiaSharp_Views_iOS_SKCanvasLayer' => 'SkiaSharp.Views.iOS.SKCanvasLayer, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x1600 /* #15 'GroundStation_UIFrequencyView' => 'GroundStation.UIFrequencyView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x8104 /* #16 'UIViewController' => 'UIKit.UIViewController, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x500 /* #17 'ViewController' => 'GroundStation.ViewController, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x600 /* #18 'GroundStation_UIMulitView' => 'GroundStation.UIMulitView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x700 /* #19 'GroundStation_StandByView' => 'GroundStation.StandByView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x800 /* #20 'GroundStation_InflightView' => 'GroundStation.InflightView, GroundStation' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x5504 /* #21 'EAGLContext' => 'OpenGLES.EAGLContext, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x6004 /* #22 'CIColor' => 'CoreImage.CIColor, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x6204 /* #23 'CIContext' => 'CoreImage.CIContext, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x6304 /* #24 'CIImage' => 'CoreImage.CIImage, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7104 /* #25 'CALayer' => 'CoreAnimation.CALayer, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7204 /* #26 'CALayerDelegate' => 'CoreAnimation.CALayerDelegate, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7304 /* #27 'CAEAGLLayer' => 'CoreAnimation.CAEAGLLayer, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7504 /* #28 'UIApplication' => 'UIKit.UIApplication, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7904 /* #29 'UIControl' => 'UIKit.UIControl, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7604 /* #30 'UIButton' => 'UIKit.UIButton, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7704 /* #31 'UIColor' => 'UIKit.UIColor, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7804 /* #32 'UIKit_UIControlEventProxy' => 'UIKit.UIControlEventProxy, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0x7A04 /* #33 'UIFont' => 'UIKit.UIFont, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7C04 /* #34 'UIImage' => 'UIKit.UIImage, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7E04 /* #35 'UISegmentedControl' => 'UIKit.UISegmentedControl, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x7F04 /* #36 'UITextField' => 'UIKit.UITextField, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x8204 /* #37 'UIWindow' => 'UIKit.UIWindow, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x8304 /* #38 'UIActivityIndicatorView' => 'UIKit.UIActivityIndicatorView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x8504 /* #39 'UIAlertAction' => 'UIKit.UIAlertAction, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x8704 /* #40 'UIAlertController' => 'UIKit.UIAlertController, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9504 /* #41 'UIProgressView' => 'UIKit.UIProgressView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9804 /* #42 'UIScene' => 'UIKit.UIScene, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9904 /* #43 'UISceneConfiguration' => 'UIKit.UISceneConfiguration, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9A04 /* #44 'UISceneConnectionOptions' => 'UIKit.UISceneConnectionOptions, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9D04 /* #45 'UISceneSession' => 'UIKit.UISceneSession, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9E04 /* #46 'UISlider' => 'UIKit.UISlider, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x9F04 /* #47 'UISwitch' => 'UIKit.UISwitch, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xAB04 /* #48 'NSArray' => 'Foundation.NSArray, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xB504 /* #49 'NSNull' => 'Foundation.NSNull, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xB604 /* #50 'NSRunLoop' => 'Foundation.NSRunLoop, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xB704 /* #51 'NSSet' => 'Foundation.NSSet, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xBA04 /* #52 'NSString' => 'Foundation.NSString, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xBF04 /* #53 'Foundation_NSDispatcher' => 'Foundation.NSDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0xC004 /* #54 '__MonoMac_NSSynchronizationContextDispatcher' => 'Foundation.NSSynchronizationContextDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0xC104 /* #55 'Foundation_NSAsyncDispatcher' => 'Foundation.NSAsyncDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0xC204 /* #56 '__MonoMac_NSAsyncActionDispatcher' => 'Foundation.NSAsyncActionDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0xC304 /* #57 '__MonoMac_NSAsyncSynchronizationContextDispatcher' => 'Foundation.NSAsyncSynchronizationContextDispatcher, Xamarin.iOS' */, (MTTypeFlags) (2) /* UserType */ },
+		{ NULL, 0xC404 /* #58 'NSAutoreleasePool' => 'Foundation.NSAutoreleasePool, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xCF04 /* #59 'NSEnumerator' => 'Foundation.NSEnumerator, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xD004 /* #60 'NSException' => 'Foundation.NSException, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0x5C04 /* #61 'GLKit_GLKView__GLKViewDelegate' => 'GLKit.GLKView+_GLKViewDelegate, Xamarin.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x5B04 /* #62 'GLKView' => 'GLKit.GLKView, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xAC04 /* #63 'NSData' => 'Foundation.NSData, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xAE04 /* #64 'NSDictionary' => 'Foundation.NSDictionary, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xB304 /* #65 'NSMutableData' => 'Foundation.NSMutableData, Xamarin.iOS' */, (MTTypeFlags) (0) /* None */ },
+		{ NULL, 0xC804 /* #66 '__NSObject_Disposer' => 'Foundation.NSObject+NSObject_Disposer, Xamarin.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x512 /* #67 'SKCanvasView' => 'SkiaSharp.Views.iOS.SKCanvasView, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x210 /* #68 'ChartView' => 'Microcharts.iOS.ChartView, Microcharts.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x612 /* #69 'SkiaSharp_Views_iOS_SKGLLayer' => 'SkiaSharp.Views.iOS.SKGLLayer, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0x712 /* #70 'SKGLView' => 'SkiaSharp.Views.iOS.SKGLView, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
+		{ NULL, 0xB12 /* #71 'SkiaSharp_Views_iOS_SKCanvasLayer' => 'SkiaSharp.Views.iOS.SKCanvasLayer, SkiaSharp.Views.iOS' */, (MTTypeFlags) (3) /* CustomType, UserType */ },
 		{ NULL, 0 },
 	};
 
@@ -1925,7 +1970,7 @@ exception_handling:;
 		__xamarin_protocol_wrapper_map,
 		{ NULL, NULL },
 		10,
-		71,
+		72,
 		0,
 		1,
 		8,
@@ -1948,62 +1993,63 @@ void xamarin_create_classes () {
 	__xamarin_class_map [12].handle = [GroundStation_UIStatusDisplay class];
 	__xamarin_class_map [13].handle = objc_getClass ("UILabel");
 	__xamarin_class_map [14].handle = [GroundStation_UIDataSnapshot class];
-	__xamarin_class_map [15].handle = objc_getClass ("UIViewController");
-	__xamarin_class_map [16].handle = [ViewController class];
-	__xamarin_class_map [17].handle = [GroundStation_UIMulitView class];
-	__xamarin_class_map [18].handle = [GroundStation_StandByView class];
-	__xamarin_class_map [19].handle = [GroundStation_InflightView class];
-	__xamarin_class_map [20].handle = objc_getClass ("EAGLContext");
-	__xamarin_class_map [21].handle = objc_getClass ("CIColor");
-	__xamarin_class_map [22].handle = objc_getClass ("CIContext");
-	__xamarin_class_map [23].handle = objc_getClass ("CIImage");
-	__xamarin_class_map [24].handle = objc_getClass ("CALayer");
-	__xamarin_class_map [25].handle = objc_getClass ("CALayerDelegate");
-	__xamarin_class_map [26].handle = objc_getClass ("CAEAGLLayer");
-	__xamarin_class_map [27].handle = objc_getClass ("UIApplication");
-	__xamarin_class_map [28].handle = objc_getClass ("UIControl");
-	__xamarin_class_map [29].handle = objc_getClass ("UIButton");
-	__xamarin_class_map [30].handle = objc_getClass ("UIColor");
-	__xamarin_class_map [31].handle = objc_getClass ("UIKit_UIControlEventProxy");
-	__xamarin_class_map [32].handle = objc_getClass ("UIFont");
-	__xamarin_class_map [33].handle = objc_getClass ("UIImage");
-	__xamarin_class_map [34].handle = objc_getClass ("UISegmentedControl");
-	__xamarin_class_map [35].handle = objc_getClass ("UITextField");
-	__xamarin_class_map [36].handle = objc_getClass ("UIWindow");
-	__xamarin_class_map [37].handle = objc_getClass ("UIActivityIndicatorView");
-	__xamarin_class_map [38].handle = objc_getClass ("UIAlertAction");
-	__xamarin_class_map [39].handle = objc_getClass ("UIAlertController");
-	__xamarin_class_map [40].handle = objc_getClass ("UIProgressView");
-	__xamarin_class_map [41].handle = objc_getClass ("UIScene");
-	__xamarin_class_map [42].handle = objc_getClass ("UISceneConfiguration");
-	__xamarin_class_map [43].handle = objc_getClass ("UISceneConnectionOptions");
-	__xamarin_class_map [44].handle = objc_getClass ("UISceneSession");
-	__xamarin_class_map [45].handle = objc_getClass ("UISlider");
-	__xamarin_class_map [46].handle = objc_getClass ("UISwitch");
-	__xamarin_class_map [47].handle = objc_getClass ("NSArray");
-	__xamarin_class_map [48].handle = objc_getClass ("NSNull");
-	__xamarin_class_map [49].handle = objc_getClass ("NSRunLoop");
-	__xamarin_class_map [50].handle = objc_getClass ("NSSet");
-	__xamarin_class_map [51].handle = objc_getClass ("NSString");
-	__xamarin_class_map [52].handle = objc_getClass ("Foundation_NSDispatcher");
-	__xamarin_class_map [53].handle = objc_getClass ("__MonoMac_NSSynchronizationContextDispatcher");
-	__xamarin_class_map [54].handle = objc_getClass ("Foundation_NSAsyncDispatcher");
-	__xamarin_class_map [55].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
-	__xamarin_class_map [56].handle = objc_getClass ("__MonoMac_NSAsyncSynchronizationContextDispatcher");
-	__xamarin_class_map [57].handle = objc_getClass ("NSAutoreleasePool");
-	__xamarin_class_map [58].handle = objc_getClass ("NSEnumerator");
-	__xamarin_class_map [59].handle = objc_getClass ("NSException");
-	__xamarin_class_map [60].handle = objc_getClass ("GLKit_GLKView__GLKViewDelegate");
-	__xamarin_class_map [61].handle = objc_getClass ("GLKView");
-	__xamarin_class_map [62].handle = objc_getClass ("NSData");
-	__xamarin_class_map [63].handle = objc_getClass ("NSDictionary");
-	__xamarin_class_map [64].handle = objc_getClass ("NSMutableData");
-	__xamarin_class_map [65].handle = objc_getClass ("__NSObject_Disposer");
-	__xamarin_class_map [66].handle = [SKCanvasView class];
-	__xamarin_class_map [67].handle = [ChartView class];
-	__xamarin_class_map [68].handle = [SkiaSharp_Views_iOS_SKGLLayer class];
-	__xamarin_class_map [69].handle = [SKGLView class];
-	__xamarin_class_map [70].handle = [SkiaSharp_Views_iOS_SKCanvasLayer class];
+	__xamarin_class_map [15].handle = [GroundStation_UIFrequencyView class];
+	__xamarin_class_map [16].handle = objc_getClass ("UIViewController");
+	__xamarin_class_map [17].handle = [ViewController class];
+	__xamarin_class_map [18].handle = [GroundStation_UIMulitView class];
+	__xamarin_class_map [19].handle = [GroundStation_StandByView class];
+	__xamarin_class_map [20].handle = [GroundStation_InflightView class];
+	__xamarin_class_map [21].handle = objc_getClass ("EAGLContext");
+	__xamarin_class_map [22].handle = objc_getClass ("CIColor");
+	__xamarin_class_map [23].handle = objc_getClass ("CIContext");
+	__xamarin_class_map [24].handle = objc_getClass ("CIImage");
+	__xamarin_class_map [25].handle = objc_getClass ("CALayer");
+	__xamarin_class_map [26].handle = objc_getClass ("CALayerDelegate");
+	__xamarin_class_map [27].handle = objc_getClass ("CAEAGLLayer");
+	__xamarin_class_map [28].handle = objc_getClass ("UIApplication");
+	__xamarin_class_map [29].handle = objc_getClass ("UIControl");
+	__xamarin_class_map [30].handle = objc_getClass ("UIButton");
+	__xamarin_class_map [31].handle = objc_getClass ("UIColor");
+	__xamarin_class_map [32].handle = objc_getClass ("UIKit_UIControlEventProxy");
+	__xamarin_class_map [33].handle = objc_getClass ("UIFont");
+	__xamarin_class_map [34].handle = objc_getClass ("UIImage");
+	__xamarin_class_map [35].handle = objc_getClass ("UISegmentedControl");
+	__xamarin_class_map [36].handle = objc_getClass ("UITextField");
+	__xamarin_class_map [37].handle = objc_getClass ("UIWindow");
+	__xamarin_class_map [38].handle = objc_getClass ("UIActivityIndicatorView");
+	__xamarin_class_map [39].handle = objc_getClass ("UIAlertAction");
+	__xamarin_class_map [40].handle = objc_getClass ("UIAlertController");
+	__xamarin_class_map [41].handle = objc_getClass ("UIProgressView");
+	__xamarin_class_map [42].handle = objc_getClass ("UIScene");
+	__xamarin_class_map [43].handle = objc_getClass ("UISceneConfiguration");
+	__xamarin_class_map [44].handle = objc_getClass ("UISceneConnectionOptions");
+	__xamarin_class_map [45].handle = objc_getClass ("UISceneSession");
+	__xamarin_class_map [46].handle = objc_getClass ("UISlider");
+	__xamarin_class_map [47].handle = objc_getClass ("UISwitch");
+	__xamarin_class_map [48].handle = objc_getClass ("NSArray");
+	__xamarin_class_map [49].handle = objc_getClass ("NSNull");
+	__xamarin_class_map [50].handle = objc_getClass ("NSRunLoop");
+	__xamarin_class_map [51].handle = objc_getClass ("NSSet");
+	__xamarin_class_map [52].handle = objc_getClass ("NSString");
+	__xamarin_class_map [53].handle = objc_getClass ("Foundation_NSDispatcher");
+	__xamarin_class_map [54].handle = objc_getClass ("__MonoMac_NSSynchronizationContextDispatcher");
+	__xamarin_class_map [55].handle = objc_getClass ("Foundation_NSAsyncDispatcher");
+	__xamarin_class_map [56].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
+	__xamarin_class_map [57].handle = objc_getClass ("__MonoMac_NSAsyncSynchronizationContextDispatcher");
+	__xamarin_class_map [58].handle = objc_getClass ("NSAutoreleasePool");
+	__xamarin_class_map [59].handle = objc_getClass ("NSEnumerator");
+	__xamarin_class_map [60].handle = objc_getClass ("NSException");
+	__xamarin_class_map [61].handle = objc_getClass ("GLKit_GLKView__GLKViewDelegate");
+	__xamarin_class_map [62].handle = objc_getClass ("GLKView");
+	__xamarin_class_map [63].handle = objc_getClass ("NSData");
+	__xamarin_class_map [64].handle = objc_getClass ("NSDictionary");
+	__xamarin_class_map [65].handle = objc_getClass ("NSMutableData");
+	__xamarin_class_map [66].handle = objc_getClass ("__NSObject_Disposer");
+	__xamarin_class_map [67].handle = [SKCanvasView class];
+	__xamarin_class_map [68].handle = [ChartView class];
+	__xamarin_class_map [69].handle = [SkiaSharp_Views_iOS_SKGLLayer class];
+	__xamarin_class_map [70].handle = [SKGLView class];
+	__xamarin_class_map [71].handle = [SkiaSharp_Views_iOS_SKCanvasLayer class];
 	xamarin_add_registration_map (&__xamarin_registration_map, false);
 }
 

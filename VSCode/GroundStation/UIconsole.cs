@@ -25,6 +25,26 @@ namespace GroundStation
             }
         }
 
+        public void WriteLine(RocketTelemetry telemetry)
+        {
+            string line = "";
+            foreach(double d in telemetry.parsedData)
+            {
+                line += d.ToString() + ",";
+
+            }
+
+            if(line.Length == 0)
+            {
+                WriteLine(telemetry.rawData);
+            }
+            else
+            {
+                WriteLine(line.Substring(0, line.Length - 1));
+            }
+            
+        }
+
         public void WriteLine(string line)
         {
             lines.RemoveAt(0);

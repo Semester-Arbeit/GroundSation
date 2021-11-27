@@ -122,13 +122,24 @@ namespace GroundStation
                 }
                 Byte[] receiveBytes = receivingUdpClient.Receive(ref RemoteIpEndPoint);
                 returnData = Encoding.ASCII.GetString(receiveBytes);
+                List<double> TelemteryDataList = new List<double>();
 
                 i = 0;
                 while (returnData != "E" && !stopListening)
                 {
                     if(dataLogging)
                     {
-                        FlightData.AppendLine(returnData);
+                        TelemteryDataList.Clear();
+                        string csvLine = "";
+                        for (int m = 0; m < 20; m++)
+                        {
+                            double oneValue = BitConverter.ToDouble(receiveBytes, m * 8);
+                            csvLine += oneValue.ToString() + ",";
+                            TelemteryDataList.Add(oneValue);
+                            
+                        }
+                        
+                        FlightData.AppendLine(csvLine.Substring(0,csvLine.Length-1));
                     }
                     
                     if (i >= peridticTelemetryUpdate)
@@ -136,6 +147,7 @@ namespace GroundStation
                         TelemetryUpdate(new RocketTelemetry()
                         {
                             rawData = returnData,
+                            parsedData = TelemteryDataList,
                             statusUpdate = sUpdate
 
                         });

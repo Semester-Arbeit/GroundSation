@@ -143,6 +143,7 @@
         <Compile Include="Alpha.cs" />
         <Compile Include="RocketTelemetry.cs" />
         <Compile Include="UIDataSnapshot.cs" />
+        <Compile Include="UIFrequencyView.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

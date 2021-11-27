@@ -49,9 +49,9 @@ namespace GroundStation
             this.AddSubview(myChartView);
         }
 
-        public void AddNewValue(float valueDouble)
+        public void AddNewValue(double valueDouble)
         {
-            float value = valueDouble;
+            float value = (float)valueDouble;
             valueEntries[0] = new ChartEntry(value){
                 Color = SKColor.Parse(dataPointColor)
             };

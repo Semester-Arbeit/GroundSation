@@ -1751,7 +1751,7 @@ _mono_aot_file_info:
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
-	.byte 13,23,191,182,228,208,32,12,115,205,65,133,53,255,101,113
+	.byte 151,223,99,150,54,224,117,190,60,128,14,220,230,241,200,171
 	.globl _mono_aot_module_Microcharts_iOS_info
 	.align 3
 _mono_aot_module_Microcharts_iOS_info:
